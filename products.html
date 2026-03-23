@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Portfolio | Ansh Healthcare Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ================= VARIABLES & RESET ================= */
+        :root {
+            --pure-white: #ffffff;
+            --off-white: #f4f4f4;
+            --pure-black: #050505;
+            --light-black: #111111;
+            --accent-red: #e63946;
+            --dark-red: #a8202d;
+            --transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--off-white);
+            color: var(--pure-black);
+            overflow-x: hidden;
+        }
+
+        /* ✨ CUSTOM SCROLLBAR */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--light-black);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--dark-red), var(--accent-red));
+            border-radius: 10px;
+            border: 3px solid var(--light-black);
+        }
+
+        /* ================= HEADER ================= */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--accent-red);
+        }
+
+        .back-link {
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-red);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            letter-spacing: 3px;
+            color: var(--pure-black);
+        }
+
+        /* ================= HERO SECTION ================= */
+        .catalog-header {
+            padding: 180px 5% 100px;
+            background: var(--pure-black);
+            color: var(--pure-white);
+            text-align: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+        }
+
+        .catalog-header h1 {
+            font-size: clamp(40px, 8vw, 70px);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+        }
+
+        .catalog-header p {
+            font-size: 18px;
+            color: #888;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        /* ✨ SEARCH BAR */
+        .search-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-wrapper input {
+            width: 100%;
+            padding: 20px 30px;
+            border-radius: 50px;
+            border: none;
+            background: #1a1a1a;
+            color: white;
+            font-size: 16px;
+            outline: none;
+            border: 1px solid #333;
+            transition: var(--transition);
+        }
+
+        .search-wrapper input:focus {
+            background: #222;
+            border-color: var(--accent-red);
+            box-shadow: 0 0 30px rgba(230, 57, 70, 0.2);
+        }
+
+        /* ================= FILTER SYSTEM ================= */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: -35px 5% 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .filter-btn {
+            background: var(--pure-white);
+            border: none;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--accent-red);
+            color: var(--pure-white);
+            transform: translateY(-5px);
+        }
+
+        /* ================= PRODUCT GRID ================= */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 40px;
+            padding: 0 5% 100px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: var(--pure-white);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.02);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.08);
+        }
+
+        .product-img-box {
+            width: 100%;
+            height: 280px;
+            background: #fff;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-img-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+
+        .product-info {
+            padding: 30px;
+            flex-grow: 1;
+            background: var(--pure-white);
+            border-top: 1px solid #f8f8f8;
+        }
+
+        .category-tag {
+            font-size: 9px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-red);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .product-info h3 {
+            font-size: 24px;
+            font-weight: 900;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+            color: var(--pure-black);
+        }
+
+        .product-composition {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            min-height: 45px;
+        }
+
+        .btn-quote {
+            width: 100%;
+            padding: 16px;
+            background: var(--light-black);
+            color: var(--pure-white);
+            border: none;
+            border-radius: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-quote:hover {
+            background: var(--accent-red);
+            transform: scale(1.02);
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            background: var(--pure-black);
+            color: #444;
+            padding: 80px 5%;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 768px) {
+            .catalog-header {
+                padding: 150px 5% 80px;
+            }
+
+            .filter-container {
+                margin-top: -25px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">ANSH HEALTHCARE<span>.</span></div>
+        <a href="/intro_index.html" class="back-link">
+            <i class="fa-solid fa-arrow-left"></i> Back to Home
+        </a>
+    </header>
+
+    <section class="catalog-header">
+        <h1>Product <span>Portfolio</span></h1>
+        <p>A comprehensive index of our wholesale formulations and high-efficacy medical solutions.</p>
+
+        <div class="search-wrapper">
+            <input type="text" id="searchInput" placeholder="Search by brand or composition (e.g. Telmisartan)..."
+                onkeyup="handleSearch()">
+        </div>
+    </section>
+
+    <div class="filter-container">
+        <button class="filter-btn active" data-filter="all" onclick="filterProducts('all')">All Products</button>
+        <button class="filter-btn" data-filter="cardio" onclick="filterProducts('cardio')">Cardiovascular</button>
+        <button class="filter-btn" data-filter="gastro" onclick="filterProducts('gastro')">Gastrointestinal</button>
+        <button class="filter-btn" data-filter="diabetic" onclick="filterProducts('diabetic')">Diabetic Care</button>
+        <button class="filter-btn" data-filter="neuro" onclick="filterProducts('neuro')">Neuro / Multi-V</button>
+        <button class="filter-btn" data-filter="other" onclick="filterProducts('other')">Specialty</button>
+    </div>
+
+    <main class="product-grid" id="mainGrid">
+    </main>
+
+    <footer>
+        COPYRIGHT © 2026 ANSH HEALTHCARE LTD. | PRECISE MEDICINE AT SCALE
+    </footer>
+
+    <script>
+        // THE FULL DATASET
+        const products = [
+            { name: "Repride DSR", category: "gastro", comp: "Rabeprazole Sodium 20mg + Domperidone 30mg SR", img: "https://i.ibb.co/v4tfMhGx/REPRIDE-DSR.png" },
+            { name: "Ruby DSR", category: "gastro", comp: "Pantoprazole 40mg + Domperidone 30mg SR", img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" },
+            { name: "Terpide 40", category: "cardio", comp: "Telmisartan 40mg Tablets USP", img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" },
+            { name: "Terpide CR", category: "cardio", comp: "Telmisartan 40mg + Cilnidipine 10mg", img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" },
+            { name: "Terpide 6.25", category: "cardio", comp: "Carvedilol 6.25mg Tablets", img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" },
+            { name: "Tepride AM", category: "cardio", comp: "Telmisartan 40mg + Amlodipine 5mg", img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" },
+            { name: "Tepride AMH", category: "cardio", comp: "Telmisartan 40mg + Amlodipine 5mg + HCTZ 12.5mg", img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" },
+            { name: "Uristill 0.4", category: "other", comp: "Tamsulosin Hydrochloride 0.4mg PR", img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" },
+            { name: "Gatin 16", category: "other", comp: "Betahistine Hydrochloride 16mg", img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" },
+            { name: "Alphaneuron D", category: "neuro", comp: "Methylcobalamin 1500mcg + ALA + Vitamins", img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" },
+            { name: "Oxypride Plus", category: "neuro", comp: "Antioxidants with Multivitamins & Minerals", img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" },
+            { name: "Omega Pride", category: "neuro", comp: "Omega 3 Fatty Acids Softgel Capsules", img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" },
+            { name: "Shanpride 200", category: "other", comp: "Itraconazole 200mg Capsules", img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" },
+            { name: "Giopride 1", category: "diabetic", comp: "Glimepiride 1mg Tablets", img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" },
+            { name: "Giopride 2", category: "diabetic", comp: "Glimepiride 2mg Tablets", img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" },
+            { name: "Giopride P1", category: "diabetic", comp: "Glimepiride 1mg + Pioglitazone 15mg", img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" },
+            { name: "Giopride P2", category: "diabetic", comp: "Glimepiride 2mg + Pioglitazone 15mg", img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" },
+            { name: "Sudaxit M", category: "diabetic", comp: "Sitagliptin 50mg + Metformin 500mg", img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" }
+        ];
+
+        let currentFilter = 'all';
+
+        function renderGrid(data) {
+            const grid = document.getElementById('mainGrid');
+            grid.innerHTML = data.length > 0 ? '' : '<p style="grid-column: 1/-1; text-align:center; padding: 50px; color: #888;">No products found matching your criteria.</p>';
+
+            data.forEach(p => {
+                grid.innerHTML += `
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="${p.img}" alt="${p.name}">
+                        </div>
+                        <div class="product-info">
+                            <span class="category-tag">${p.category}</span>
+                            <h3>${p.name}</h3>
+                            <p class="product-composition">${p.comp}</p>
+                            <button class="btn-quote" onclick="window.location.href='mailto:inquiry@anshhealthcare.com?subject=Bulk Quote: ${p.name}'">
+                                Request Bulk Quote <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function filterProducts(cat) {
+            currentFilter = cat;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.filter === cat);
+            });
+            handleSearch(); // Combine filter with current search text
+        }
+
+        function handleSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+
+            const filteredData = products.filter(p => {
+                const matchesFilter = currentFilter === 'all' || p.category === currentFilter;
+                const matchesSearch = p.name.toLowerCase().includes(query) || p.comp.toLowerCase().includes(query);
+                return matchesFilter && matchesSearch;
+            });
+
+            renderGrid(filteredData);
+        }
+
+        // Initial Load
+        renderGrid(products);
+    </script>
+</body>
+
+</html>
