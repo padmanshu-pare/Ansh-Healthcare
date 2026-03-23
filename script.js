@@ -155,25 +155,3 @@ function toggleChat() {
     box.style.display = box.style.display === "flex" ? "none" : "flex";
 }
 
-function sendMsg(msg) {
-    const chatBody = document.getElementById("chatBody");
-
-    // User message
-    chatBody.innerHTML += `<p style="text-align:right;"><b>${msg}</b></p>`;
-
-    // Bot reply
-    chatBody.innerHTML += `<p class="bot-msg">Connecting you on WhatsApp...</p>`;
-
-    // Auto scroll
-    chatBody.scrollTop = chatBody.scrollHeight;
-
-    // Open WhatsApp
-    setTimeout(() => {
-        window.open(`https://wa.me/919425326084?text=${encodeURIComponent(msg)}`, "_blank");
-    }, 1000);
-}
-
-function toggleChat() {
-    const box = document.getElementById("chatbox");
-    box.classList.toggle("active");
-}
