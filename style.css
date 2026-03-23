@@ -1321,8 +1321,12 @@ header.scrolled {
 
 .chatbot-btn {
     position: fixed;
-    bottom: 40px;
-    left: 40px;
+    bottom: 120px;
+    /* above WhatsApp */
+    right: 40px;
+    /* move to right */
+    left: auto;
+    /* remove left */
     background: var(--accent-red);
     color: #fff;
     width: 60px;
@@ -1333,13 +1337,16 @@ header.scrolled {
     justify-content: center;
     font-size: 24px;
     cursor: pointer;
-    z-index: 999;
+    z-index: 1100;
+    /* higher than WhatsApp */
 }
 
 .chatbot-box {
     position: fixed;
-    bottom: 110px;
-    left: 40px;
+    bottom: 190px;
+    /* above chatbot button */
+    right: 40px;
+    left: auto;
     width: 300px;
     background: #fff;
     border-radius: 15px;
@@ -1347,6 +1354,20 @@ header.scrolled {
     display: none;
     flex-direction: column;
     overflow: hidden;
+    z-index: 1100;
+    /* VERY IMPORTANT */
+}
+
+.chatbot-box {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.3s ease;
+}
+
+.chatbot-box.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .chat-header {

@@ -172,3 +172,8 @@ function sendMsg(msg) {
         window.open(`https://wa.me/919425326084?text=${encodeURIComponent(msg)}`, "_blank");
     }, 1000);
 }
+
+function toggleChat() {
+    const box = document.getElementById("chatbox");
+    box.classList.toggle("active");
+}
