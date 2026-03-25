@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Portfolio | Ansh Healthcare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ================= PREMIUM DESIGNER VARIABLES ================= */
+        :root {
+            --pure-white: #ffffff;
+            --off-white: #f8fafc;
+            --pure-black: #0a0a0b;
+            --accent-red: #ff385c;
+            --dark-red: #bd1e59;
+            --glass: rgba(255, 255, 255, 0.85);
+            --border: rgba(0, 0, 0, 0.08);
+            --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.06);
+            --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        @keyframes revealUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        body {
+            background-color: var(--off-white);
+            background-image: radial-gradient(#cbd5e1 0.5px, transparent 0.5px);
+            background-size: 40px 40px;
+            color: var(--pure-black);
+            overflow-x: hidden;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--accent-red);
+        }
+
+        .catalog-header {
+            padding: 180px 5% 120px;
+            background: radial-gradient(circle at top right, #1a1a1a, #050505);
+            color: var(--pure-white);
+            text-align: center;
+            border-bottom: 4px solid var(--accent-red);
+        }
+
+        .catalog-header h1 {
+            font-size: clamp(40px, 8vw, 80px);
+            font-weight: 900;
+            letter-spacing: -3px;
+            margin-bottom: 20px;
+            background: linear-gradient(to bottom, #ffffff, #888888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .search-wrapper {
+            max-width: 650px;
+            margin: 40px auto 0;
+            position: relative;
+        }
+
+        .search-wrapper input {
+            width: 100%;
+            padding: 22px 35px;
+            border-radius: 100px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 16px;
+            outline: none;
+            backdrop-filter: blur(10px);
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 40px 5% 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .filter-btn {
+            background: var(--pure-white);
+            border: 1px solid var(--border);
+            padding: 14px 26px;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 11px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .filter-btn.active {
+            background: var(--accent-red);
+            color: white;
+            border-color: var(--accent-red);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 0 5% 100px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* MANUALLY STYLED CARDS */
+        .product-card {
+            background: var(--glass);
+            border-radius: 30px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            animation: revealUp 0.8s backwards;
+            box-shadow: var(--shadow-soft);
+            display: block;
+            /* Shown by default */
+        }
+
+        .product-card:hover {
+            transform: translateY(-12px) scale(1.02);
+        }
+
+        .product-img-box {
+            width: 100%;
+            height: 260px;
+            background: white;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-img-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .product-info {
+            padding: 30px;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .category-tag {
+            font-size: 9px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--accent-red);
+        }
+
+        .product-info h3 {
+            font-size: 22px;
+            font-weight: 800;
+            margin: 10px 0;
+        }
+
+        .product-composition {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 25px;
+            min-height: 42px;
+        }
+
+        .btn-quote {
+            width: 100%;
+            padding: 16px;
+            background: var(--pure-black);
+            color: white;
+            border: none;
+            border-radius: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        /* MODAL */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 900px;
+            border-radius: 40px;
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            animation: revealUp 0.5s ease;
+        }
+
+        .modal-left {
+            flex: 1;
+            padding: 40px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-right {
+            flex: 1.2;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        footer {
+            background: var(--pure-black);
+            color: #666;
+            padding: 60px 5%;
+            text-align: center;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">ANSH HEALTHCARE<span>.</span></div>
+        <a href="/intro_index.html" class="back-link">Home</a>
+    </header>
+
+    <section class="catalog-header">
+        <h1>Product <span>Portfolio</span></h1>
+        <div class="search-wrapper">
+            <input type="text" id="searchInput" placeholder="Search brands or salts..." onkeyup="filterItems()">
+        </div>
+    </section>
+
+    <div class="filter-container">
+        <button class="filter-btn active" onclick="setCategory('all', this)">All Products</button>
+        <button class="filter-btn" onclick="setCategory('cardio', this)">Cardio</button>
+        <button class="filter-btn" onclick="setCategory('gastro', this)">Gastro</button>
+        <button class="filter-btn" onclick="setCategory('diabetic', this)">Diabetic</button>
+    </div>
+
+    <main class="product-grid" id="mainGrid">
+
+        <div class="product-card" data-category="gastro">
+            <div class="product-img-box"><img src="https://i.ibb.co/v4tfMhGx/REPRIDE-DSR.png" alt="Repride DSR"></div>
+            <div class="product-info">
+                <span class="category-tag">Gastro</span>
+                <h3>Repride DSR</h3>
+                <p class="product-composition">Rabeprazole Sodium 20mg + Domperidone 30mg SR</p>
+                <button class="btn-quote"
+                    onclick="openPopup('Repride DSR', 'Gastro', 'Rabeprazole Sodium 20mg + Domperidone 30mg SR', 'https://i.ibb.co/v4tfMhGx/REPRIDE-DSR.png')">View
+                    Details</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="cardio">
+            <div class="product-img-box"><img src="https://via.placeholder.com/300x200?text=Terpide+40"
+                    alt="Terpide 40"></div>
+            <div class="product-info">
+                <span class="category-tag">Cardio</span>
+                <h3>Terpide 40</h3>
+                <p class="product-composition">Telmisartan 40mg Tablets USP</p>
+                <button class="btn-quote"
+                    onclick="openPopup('Terpide 40', 'Cardio', 'Telmisartan 40mg Tablets USP', 'https://via.placeholder.com/300x200?text=Terpide+40')">View
+                    Details</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="diabetic">
+            <div class="product-img-box"><img src="https://via.placeholder.com/300x200?text=Sudaxit+M" alt="Sudaxit M">
+            </div>
+            <div class="product-info">
+                <span class="category-tag">Diabetic</span>
+                <h3>Sudaxit M</h3>
+                <p class="product-composition">Sitagliptin 50mg + Metformin 500mg</p>
+                <button class="btn-quote"
+                    onclick="openPopup('Sudaxit M', 'Diabetic', 'Sitagliptin 50mg + Metformin 500mg', 'https://via.placeholder.com/300x200?text=Sudaxit+M')">View
+                    Details</button>
+            </div>
+        </div>
+
+    </main>
+
+    <div class="modal-overlay" id="productModal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div class="modal-left"><img id="modalImg" src=""></div>
+            <div class="modal-right">
+                <span id="modalCat" class="category-tag"></span>
+                <h2 id="modalTitle"></h2>
+                <p id="modalComp" style="margin: 20px 0; color: #4b5563; font-size: 18px;"></p>
+                <button class="btn-quote" id="modalAction">Inquire Now</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>COPYRIGHT © 2026 ANSH HEALTHCARE LTD.</footer>
+
+    <script>
+        let currentCategory = 'all';
+
+        function setCategory(cat, btn) {
+            currentCategory = cat;
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            filterItems();
+        }
+
+        function filterItems() {
+            const searchText = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.product-card');
+
+            cards.forEach(card => {
+                const title = card.querySelector('h3').innerText.toLowerCase();
+                const comp = card.querySelector('.product-composition').innerText.toLowerCase();
+                const category = card.getAttribute('data-category');
+
+                const matchesSearch = title.includes(searchText) || comp.includes(searchText);
+                const matchesCategory = currentCategory === 'all' || category === currentCategory;
+
+                if (matchesSearch && matchesCategory) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function openPopup(name, cat, comp, img) {
+            document.getElementById('modalTitle').innerText = name;
+            document.getElementById('modalCat').innerText = cat;
+            document.getElementById('modalComp').innerText = comp;
+            document.getElementById('modalImg').src = img;
+            document.getElementById('modalAction').onclick = () => {
+                window.location.href = `mailto:inquiry@anshhealthcare.com?subject=Inquiry: ${name}`;
+            };
+            document.getElementById('productModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
