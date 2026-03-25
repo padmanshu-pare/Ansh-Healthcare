@@ -208,67 +208,131 @@
         }
 
         /* ================= MODAL ================= */
+        /* ================= SOFT & CREATIVE MODAL ================= */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.4);
+            /* Light background instead of dark */
+            backdrop-filter: blur(15px);
+            /* Strong blur for 'frosted' look */
+            -webkit-backdrop-filter: blur(15px);
             display: none;
             justify-content: center;
             align-items: center;
             z-index: 2000;
             padding: 20px;
+            transition: all 0.3s ease;
         }
 
         .modal-content {
-            background: white;
+            background: rgba(255, 255, 255, 0.85);
             width: 100%;
             max-width: 850px;
-            border-radius: 30px;
+            border-radius: 40px;
+            /* Extra rounded corners */
             display: flex;
             overflow: hidden;
             position: relative;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.08);
+            /* Soft, expansive shadow */
+            border: 1px solid rgba(255, 255, 255, 0.5);
+
+            /* Soft Spring Animation */
+            animation: softPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes softPop {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
         }
 
         .modal-left {
             flex: 1;
-            padding: 40px;
-            background: #fff;
+            background: #ffffff;
+            padding: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
+        .modal-left img {
+            max-width: 100%;
+            max-height: 350px;
+            object-fit: contain;
+            /* Soft floating animation for the product image */
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
         .modal-right {
             flex: 1.2;
-            padding: 40px;
+            padding: 60px;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(244, 244, 244, 0.4));
         }
 
         .modal-close {
             position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 24px;
+            top: 30px;
+            right: 35px;
+            font-size: 20px;
             cursor: pointer;
+            color: #000;
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
         }
 
-        footer {
-            background: var(--pure-black);
-            color: #444;
-            padding: 60px 5%;
-            text-align: center;
+        .modal-close:hover {
+            transform: rotate(90deg);
+            background: var(--accent-red);
+            color: #fff;
         }
 
-        @media (max-width: 768px) {
-            .modal-content {
-                flex-direction: column;
-            }
+        .modal-right h2 {
+            font-size: 38px;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            margin-bottom: 15px;
+            color: var(--pure-black);
+        }
+
+        #modalComp {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            font-weight: 400;
         }
 
         /* The 'Easy Wrapper' that pushes content to both sides */
@@ -346,176 +410,6 @@
 
     <main class="product-grid" id="mainGrid">
 
-        <div class="product-card" data-category="Gastro">
-            <div class="product-img-box"><img src="https://i.ibb.co/v4tfMhGx/REPRIDE-DSR.png" alt="Repride DSR"></div>
-            <div class="product-info">
-                <div class="status-row">
-                    <span class="category-tag">Gastro</span>
-                    <div style="display:flex; align-items:center; gap:6px;">
-                        <span class="dot"></span>
-                        <span class="stock-text">Stock Available</span>
-                    </div>
-                </div>
-                <h3>Repride DSR</h3>
-                <p class="product-composition">Rabeprazole Sodium 20mg + Domperidone 30mg SR</p>
-                <button class="btn-quote"
-                    onclick="openPopup('Repride DSR', 'Gastro', 'Rabeprazole Sodium 20mg + Domperidone 30mg SR', 'https://i.ibb.co/v4tfMhGx/REPRIDE-DSR.png')">See
-                    Details</button>
-            </div>
-        </div>
-
-        <div class="product-card" data-category="Gastro">
-            <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
-                    alt="Ruby DSR"></div>
-            <div class="product-info">
-                <div class="status-row">
-                    <span class="category-tag">Gastro</span>
-                    <div style="display:flex; align-items:center; gap:6px;">
-                        <span class="dot"></span>
-                        <span class="stock-text">Stock Available</span>
-                    </div>
-                </div>
-                <h3>Ruby DSR</h3>
-                <p class="product-composition">Pantoprazole 40mg + Domperidone 30mg SR</p>
-                <button class="btn-quote"
-                    onclick="openPopup('Ruby DSR', 'Gastro', 'Pantoprazole 40mg + Domperidone 30mg SR', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500')">See
-                    Details</button>
-            </div>
-        </div>
-
-        <div class="product-card" data-category="Cardio">
-            <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
-                    alt="Terpide 40"></div>
-            <div class="product-info">
-                <div class="status-row">
-                    <span class="category-tag">Cardio</span>
-                    <div style="display:flex; align-items:center; gap:6px;">
-                        <span class="dot"></span>
-                        <span class="stock-text">Stock Available</span>
-                    </div>
-                </div>
-                <h3>Terpide 40</h3>
-                <p class="product-composition">Telmisartan 40mg Tablets</p>
-                <button class="btn-quote"
-                    onclick="openPopup('Terpide 40', 'Cardio', 'Telmisartan 40mg Tablets', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500')">See
-                    Details</button>
-            </div>
-        </div>
-
-        <div class="product-card" data-category="Cardio">
-            <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
-                    alt="Terpide CR"></div>
-            <div class="product-info">
-                <div class="status-row">
-                    <span class="category-tag">Cardio</span>
-                    <div style="display:flex; align-items:center; gap:6px;">
-                        <span class="dot"></span>
-                        <span class="stock-text">Stock Available</span>
-                    </div>
-                </div>
-                <h3>Terpide CR</h3>
-                <p class="product-composition">Telmisartan 40mg + Cilnidipine 10mg</p>
-                <button class="btn-quote"
-                    onclick="openPopup('Terpide CR', 'Cardio', 'Telmisartan 40mg + Cilnidipine 10mg', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500')">See
-                    Details</button>
-            </div>
-        </div>
-
-        <div class="product-card" data-category="Cardio">
-            <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
-                    alt="Terpide 6.25"></div>
-            <div class="product-info">
-                <div class="status-row">
-                    <span class="category-tag">Cardio</span>
-                    <div style="display:flex; align-items:center; gap:6px;">
-                        <span class="dot"></span>
-                        <span class="stock-text">Stock Available</span>
-                    </div>
-                </div>
-                <h3>Terpide 6.25</h3>
-                <p class="product-composition">Carvedilol 6.25mg Tablets</p>
-                <button class="btn-quote"
-                    onclick="openPopup('Terpide 6.25', 'Cardio', 'Carvedilol 6.25mg Tablets', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500')">See
-                    Details</button>
-            </div>
-        </div>
-
-        <div class="product-card" data-category="Cardio">
-            <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
-                    alt="Tepride AM"></div>
-            <div class="product-info">
-                <div class="status-row">
-                    <span class="category-tag">Cardio</span>
-                    <div style="display:flex; align-items:center; gap:6px;">
-                        <span class="dot"></span>
-                        <span class="stock-text">Stock Available</span>
-                    </div>
-                </div>
-                <h3>Tepride AM</h3>
-                <p class="product-composition">Telmisartan 40mg + Amlodipine 5mg</p>
-                <button class="btn-quote"
-                    onclick="openPopup('Tepride AM', 'Cardio', 'Telmisartan 40mg + Amlodipine 5mg', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500')">See
-                    Details</button>
-            </div>
-        </div>
-
-        <div class="product-card" data-category="Cardio">
-            <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
-                    alt="Tepride AMH"></div>
-            <div class="product-info">
-                <div class="status-row">
-                    <span class="category-tag">Cardio</span>
-                    <div style="display:flex; align-items:center; gap:6px;">
-                        <span class="dot"></span>
-                        <span class="stock-text">Stock Available</span>
-                    </div>
-                </div>
-                <h3>Tepride AMH</h3>
-                <p class="product-composition">Telmisartan 40mg + Amlodipine 5mg + HCTZ 12.5mg</p>
-                <button class="btn-quote"
-                    onclick="openPopup('Tepride AMH', 'Cardio', 'Telmisartan 40mg + Amlodipine 5mg + HCTZ 12.5mg', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500')">See
-                    Details</button>
-            </div>
-        </div>
-
-        <div class="product-card" data-category="Other">
-            <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
-                    alt="Uristill 0.4"></div>
-            <div class="product-info">
-                <div class="status-row">
-                    <span class="category-tag">Other</span>
-                    <div style="display:flex; align-items:center; gap:6px;">
-                        <span class="dot"></span>
-                        <span class="stock-text">Stock Available</span>
-                    </div>
-                </div>
-                <h3>Uristill 0.4</h3>
-                <p class="product-composition">Tamsulosin Hydrochloride 0.4mg PR</p>
-                <button class="btn-quote"
-                    onclick="openPopup('Uristill 0.4', 'Other', 'Tamsulosin Hydrochloride 0.4mg PR', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500')">See
-                    Details</button>
-            </div>
-        </div>
-
-        <div class="product-card" data-category="Other">
-            <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
-                    alt="Gatin 16"></div>
-            <div class="product-info">
-                <div class="status-row">
-                    <span class="category-tag">Other</span>
-                    <div style="display:flex; align-items:center; gap:6px;">
-                        <span class="dot"></span>
-                        <span class="stock-text">Stock Available</span>
-                    </div>
-                </div>
-                <h3>Gatin 16</h3>
-                <p class="product-composition">Betahistine Hydrochloride 16mg</p>
-                <button class="btn-quote"
-                    onclick="openPopup('Gatin 16', 'Other', 'Betahistine Hydrochloride 16mg', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500')">See
-                    Details</button>
-            </div>
-        </div>
-
         <div class="product-card" data-category="Neuro">
             <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
                     alt="Alphaneuron D"></div>
@@ -535,47 +429,9 @@
             </div>
         </div>
 
-        <div class="product-card" data-category="Neuro">
-            <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
-                    alt="Oxypride Plus"></div>
-            <div class="product-info">
-                <div class="status-row">
-                    <span class="category-tag">Neuro</span>
-                    <div style="display:flex; align-items:center; gap:6px;">
-                        <span class="dot"></span>
-                        <span class="stock-text">Stock Available</span>
-                    </div>
-                </div>
-                <h3>Oxypride Plus</h3>
-                <p class="product-composition">Antioxidants with Multivitamins & Minerals</p>
-                <button class="btn-quote"
-                    onclick="openPopup('Oxypride Plus', 'Neuro', 'Antioxidants with Multivitamins & Minerals', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500')">See
-                    Details</button>
-            </div>
-        </div>
-
-        <div class="product-card" data-category="Neuro">
-            <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
-                    alt="Omega Pride"></div>
-            <div class="product-info">
-                <div class="status-row">
-                    <span class="category-tag">Neuro</span>
-                    <div style="display:flex; align-items:center; gap:6px;">
-                        <span class="dot"></span>
-                        <span class="stock-text">Stock Available</span>
-                    </div>
-                </div>
-                <h3>Omega Pride</h3>
-                <p class="product-composition">Omega 3 Fatty Acids Softgel Capsules</p>
-                <button class="btn-quote"
-                    onclick="openPopup('Omega Pride', 'Neuro', 'Omega 3 Fatty Acids Softgel Capsules', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500')">See
-                    Details</button>
-            </div>
-        </div>
-
         <div class="product-card" data-category="Other">
             <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
-                    alt="Shanpride 200"></div>
+                    alt="Gatin 16"></div>
             <div class="product-info">
                 <div class="status-row">
                     <span class="category-tag">Other</span>
@@ -584,10 +440,10 @@
                         <span class="stock-text">Stock Available</span>
                     </div>
                 </div>
-                <h3>Shanpride 200</h3>
-                <p class="product-composition">Itraconazole 200mg Capsules</p>
+                <h3>Gatin 16</h3>
+                <p class="product-composition">Betahistine Hydrochloride 16mg</p>
                 <button class="btn-quote"
-                    onclick="openPopup('Shanpride 200', 'Other', 'Itraconazole 200mg Capsules', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500')">See
+                    onclick="openPopup('Gatin 16', 'Other', 'Betahistine Hydrochloride 16mg', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500')">See
                     Details</button>
             </div>
         </div>
@@ -668,6 +524,100 @@
             </div>
         </div>
 
+        <div class="product-card" data-category="Neuro">
+            <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
+                    alt="Omega Pride"></div>
+            <div class="product-info">
+                <div class="status-row">
+                    <span class="category-tag">Neuro</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
+                <h3>Omega Pride</h3>
+                <p class="product-composition">Omega 3 Fatty Acids Softgel Capsules</p>
+                <button class="btn-quote"
+                    onclick="openPopup('Omega Pride', 'Neuro', 'Omega 3 Fatty Acids Softgel Capsules', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500')">See
+                    Details</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="Neuro">
+            <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
+                    alt="Oxypride Plus"></div>
+            <div class="product-info">
+                <div class="status-row">
+                    <span class="category-tag">Neuro</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
+                <h3>Oxypride Plus</h3>
+                <p class="product-composition">Antioxidants with Multivitamins & Minerals</p>
+                <button class="btn-quote"
+                    onclick="openPopup('Oxypride Plus', 'Neuro', 'Antioxidants with Multivitamins & Minerals', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500')">See
+                    Details</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="Gastro">
+            <div class="product-img-box"><img src="https://i.ibb.co/v4tfMhGx/REPRIDE-DSR.png" alt="Repride DSR"></div>
+            <div class="product-info">
+                <div class="status-row">
+                    <span class="category-tag">Gastro</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
+                <h3>Repride DSR</h3>
+                <p class="product-composition">Rabeprazole Sodium 20mg + Domperidone 30mg SR</p>
+                <button class="btn-quote"
+                    onclick="openPopup('Repride DSR', 'Gastro', 'Rabeprazole Sodium 20mg + Domperidone 30mg SR', 'https://i.ibb.co/v4tfMhGx/REPRIDE-DSR.png')">See
+                    Details</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="Gastro">
+            <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
+                    alt="Ruby DSR"></div>
+            <div class="product-info">
+                <div class="status-row">
+                    <span class="category-tag">Gastro</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
+                <h3>Ruby DSR</h3>
+                <p class="product-composition">Pantoprazole 40mg + Domperidone 30mg SR</p>
+                <button class="btn-quote"
+                    onclick="openPopup('Ruby DSR', 'Gastro', 'Pantoprazole 40mg + Domperidone 30mg SR', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500')">See
+                    Details</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="Other">
+            <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
+                    alt="Shanpride 200"></div>
+            <div class="product-info">
+                <div class="status-row">
+                    <span class="category-tag">Other</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
+                <h3>Shanpride 200</h3>
+                <p class="product-composition">Itraconazole 200mg Capsules</p>
+                <button class="btn-quote"
+                    onclick="openPopup('Shanpride 200', 'Other', 'Itraconazole 200mg Capsules', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500')">See
+                    Details</button>
+            </div>
+        </div>
+
         <div class="product-card" data-category="Diabetic">
             <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
                     alt="Sudaxit M"></div>
@@ -687,6 +637,119 @@
             </div>
         </div>
 
+        <div class="product-card" data-category="Cardio">
+            <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
+                    alt="Tepride AM"></div>
+            <div class="product-info">
+                <div class="status-row">
+                    <span class="category-tag">Cardio</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
+                <h3>Tepride AM</h3>
+                <p class="product-composition">Telmisartan 40mg + Amlodipine 5mg</p>
+                <button class="btn-quote"
+                    onclick="openPopup('Tepride AM', 'Cardio', 'Telmisartan 40mg + Amlodipine 5mg', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500')">See
+                    Details</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="Cardio">
+            <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
+                    alt="Tepride AMH"></div>
+            <div class="product-info">
+                <div class="status-row">
+                    <span class="category-tag">Cardio</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
+                <h3>Tepride AMH</h3>
+                <p class="product-composition">Telmisartan 40mg + Amlodipine 5mg + HCTZ 12.5mg</p>
+                <button class="btn-quote"
+                    onclick="openPopup('Tepride AMH', 'Cardio', 'Telmisartan 40mg + Amlodipine 5mg + HCTZ 12.5mg', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500')">See
+                    Details</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="Cardio">
+            <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
+                    alt="Terpide 40"></div>
+            <div class="product-info">
+                <div class="status-row">
+                    <span class="category-tag">Cardio</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
+                <h3>Terpide 40</h3>
+                <p class="product-composition">Telmisartan 40mg Tablets</p>
+                <button class="btn-quote"
+                    onclick="openPopup('Terpide 40', 'Cardio', 'Telmisartan 40mg Tablets', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500')">See
+                    Details</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="Cardio">
+            <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
+                    alt="Terpide 6.25"></div>
+            <div class="product-info">
+                <div class="status-row">
+                    <span class="category-tag">Cardio</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
+                <h3>Terpide 6.25</h3>
+                <p class="product-composition">Carvedilol 6.25mg Tablets</p>
+                <button class="btn-quote"
+                    onclick="openPopup('Terpide 6.25', 'Cardio', 'Carvedilol 6.25mg Tablets', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500')">See
+                    Details</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="Cardio">
+            <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
+                    alt="Terpide CR"></div>
+            <div class="product-info">
+                <div class="status-row">
+                    <span class="category-tag">Cardio</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
+                <h3>Terpide CR</h3>
+                <p class="product-composition">Telmisartan 40mg + Cilnidipine 10mg</p>
+                <button class="btn-quote"
+                    onclick="openPopup('Terpide CR', 'Cardio', 'Telmisartan 40mg + Cilnidipine 10mg', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500')">See
+                    Details</button>
+            </div>
+        </div>
+
+        <div class="product-card" data-category="Other">
+            <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
+                    alt="Uristill 0.4"></div>
+            <div class="product-info">
+                <div class="status-row">
+                    <span class="category-tag">Other</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
+                <h3>Uristill 0.4</h3>
+                <p class="product-composition">Tamsulosin Hydrochloride 0.4mg PR</p>
+                <button class="btn-quote"
+                    onclick="openPopup('Uristill 0.4', 'Other', 'Tamsulosin Hydrochloride 0.4mg PR', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500')">See
+                    Details</button>
+            </div>
+        </div>
 
     </main>
 
@@ -732,20 +795,33 @@
         }
 
         function openPopup(name, cat, comp, img) {
+            // Inject the data into the modal elements
             document.getElementById('modalTitle').innerText = name;
             document.getElementById('modalCat').innerText = cat;
             document.getElementById('modalComp').innerText = comp;
             document.getElementById('modalImg').src = img;
-            document.getElementById('modalAction').onclick = () => {
-                window.location.href = `mailto:inquiry@anshhealthcare.com?subject=Bulk Quote: ${name}`;
-            };
-            document.getElementById('productModal').style.display = 'flex';
+
+            // Show the modal with our flex alignment
+            const modal = document.getElementById('productModal');
+            modal.style.display = 'flex';
+
+            // Disable background scrolling for a focused experience
             document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
-            document.getElementById('productModal').style.display = 'none';
+            const modal = document.getElementById('productModal');
+            // Hide modal
+            modal.style.display = 'none';
             document.body.style.overflow = 'auto';
+        }
+
+        // Add this: Close when clicking the blurred background
+        window.onclick = function (event) {
+            const modal = document.getElementById('productModal');
+            if (event.target == modal) {
+                closeModal();
+            }
         }
     </script>
 </body>
