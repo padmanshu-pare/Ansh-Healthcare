@@ -271,49 +271,36 @@
             }
         }
 
-        /* Container for the stock indicator */
-        .stock-status {
+        /* The 'Easy Wrapper' that pushes content to both sides */
+        .status-row {
             display: flex;
+            justify-content: space-between;
+            /* Left and Right alignment */
             align-items: center;
-            gap: 8px;
-            justify-content: flex-end;
-            /* Pushes it to the right side */
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
-        /* The Green Blinking Dot */
-        .pulse-dot {
+        /* The Blinking Green Dot */
+        .dot {
             height: 8px;
             width: 8px;
             background-color: #22c55e;
-            /* Medical Green */
             border-radius: 50%;
             display: inline-block;
             position: relative;
+            margin-right: 6px;
         }
 
-        .pulse-dot::after {
+        .dot::after {
             content: "";
             position: absolute;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             background-color: #22c55e;
             border-radius: 50%;
-            z-index: -1;
-            animation: blink-animation 1.5s infinite ease-in-out;
+            animation: pulse 1.5s infinite;
         }
 
-        /* The Text Style */
-        .stock-text {
-            font-size: 10px;
-            font-weight: 800;
-            text-transform: uppercase;
-            color: #22c55e;
-            letter-spacing: 0.5px;
-        }
-
-        /* Blinking Effect Animation */
-        @keyframes blink-animation {
+        @keyframes pulse {
             0% {
                 transform: scale(1);
                 opacity: 0.8;
@@ -323,6 +310,13 @@
                 transform: scale(2.5);
                 opacity: 0;
             }
+        }
+
+        .stock-text {
+            font-size: 10px;
+            font-weight: 800;
+            color: #22c55e;
+            text-transform: uppercase;
         }
     </style>
 </head>
@@ -351,17 +345,22 @@
     </div>
 
     <main class="product-grid" id="mainGrid">
+
         <div class="product-card" data-category="Gastro">
-            <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
-                    alt="Repride DSR"></div>
+            <div class="product-img-box"><img src="https://i.ibb.co/v4tfMhGx/REPRIDE-DSR.png" alt="Repride DSR"></div>
             <div class="product-info">
-                <span class="category-tag">Gastro</span>
+                <div class="status-row">
+                    <span class="category-tag">Gastro</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
                 <h3>Repride DSR</h3>
                 <p class="product-composition">Rabeprazole Sodium 20mg + Domperidone 30mg SR</p>
                 <button class="btn-quote"
-                    onclick="openPopup('Repride DSR', 'Gastro', 'Rabeprazole Sodium 20mg + Domperidone 30mg SR', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500')">See
+                    onclick="openPopup('Repride DSR', 'Gastro', 'Rabeprazole Sodium 20mg + Domperidone 30mg SR', 'https://i.ibb.co/v4tfMhGx/REPRIDE-DSR.png')">See
                     Details</button>
-
             </div>
         </div>
 
@@ -369,7 +368,13 @@
             <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
                     alt="Ruby DSR"></div>
             <div class="product-info">
-                <span class="category-tag">Gastro</span>
+                <div class="status-row">
+                    <span class="category-tag">Gastro</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
                 <h3>Ruby DSR</h3>
                 <p class="product-composition">Pantoprazole 40mg + Domperidone 30mg SR</p>
                 <button class="btn-quote"
@@ -382,7 +387,13 @@
             <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
                     alt="Terpide 40"></div>
             <div class="product-info">
-                <span class="category-tag">Cardio</span>
+                <div class="status-row">
+                    <span class="category-tag">Cardio</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
                 <h3>Terpide 40</h3>
                 <p class="product-composition">Telmisartan 40mg Tablets</p>
                 <button class="btn-quote"
@@ -395,7 +406,13 @@
             <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
                     alt="Terpide CR"></div>
             <div class="product-info">
-                <span class="category-tag">Cardio</span>
+                <div class="status-row">
+                    <span class="category-tag">Cardio</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
                 <h3>Terpide CR</h3>
                 <p class="product-composition">Telmisartan 40mg + Cilnidipine 10mg</p>
                 <button class="btn-quote"
@@ -408,7 +425,13 @@
             <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
                     alt="Terpide 6.25"></div>
             <div class="product-info">
-                <span class="category-tag">Cardio</span>
+                <div class="status-row">
+                    <span class="category-tag">Cardio</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
                 <h3>Terpide 6.25</h3>
                 <p class="product-composition">Carvedilol 6.25mg Tablets</p>
                 <button class="btn-quote"
@@ -421,7 +444,13 @@
             <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
                     alt="Tepride AM"></div>
             <div class="product-info">
-                <span class="category-tag">Cardio</span>
+                <div class="status-row">
+                    <span class="category-tag">Cardio</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
                 <h3>Tepride AM</h3>
                 <p class="product-composition">Telmisartan 40mg + Amlodipine 5mg</p>
                 <button class="btn-quote"
@@ -434,7 +463,13 @@
             <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
                     alt="Tepride AMH"></div>
             <div class="product-info">
-                <span class="category-tag">Cardio</span>
+                <div class="status-row">
+                    <span class="category-tag">Cardio</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
                 <h3>Tepride AMH</h3>
                 <p class="product-composition">Telmisartan 40mg + Amlodipine 5mg + HCTZ 12.5mg</p>
                 <button class="btn-quote"
@@ -447,7 +482,13 @@
             <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
                     alt="Uristill 0.4"></div>
             <div class="product-info">
-                <span class="category-tag">Other</span>
+                <div class="status-row">
+                    <span class="category-tag">Other</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
                 <h3>Uristill 0.4</h3>
                 <p class="product-composition">Tamsulosin Hydrochloride 0.4mg PR</p>
                 <button class="btn-quote"
@@ -460,7 +501,13 @@
             <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
                     alt="Gatin 16"></div>
             <div class="product-info">
-                <span class="category-tag">Other</span>
+                <div class="status-row">
+                    <span class="category-tag">Other</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
                 <h3>Gatin 16</h3>
                 <p class="product-composition">Betahistine Hydrochloride 16mg</p>
                 <button class="btn-quote"
@@ -473,7 +520,13 @@
             <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
                     alt="Alphaneuron D"></div>
             <div class="product-info">
-                <span class="category-tag">Neuro</span>
+                <div class="status-row">
+                    <span class="category-tag">Neuro</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
                 <h3>Alphaneuron D</h3>
                 <p class="product-composition">Methylcobalamin 1500mcg + ALA + Vitamins</p>
                 <button class="btn-quote"
@@ -486,7 +539,13 @@
             <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
                     alt="Oxypride Plus"></div>
             <div class="product-info">
-                <span class="category-tag">Neuro</span>
+                <div class="status-row">
+                    <span class="category-tag">Neuro</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
                 <h3>Oxypride Plus</h3>
                 <p class="product-composition">Antioxidants with Multivitamins & Minerals</p>
                 <button class="btn-quote"
@@ -499,7 +558,13 @@
             <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
                     alt="Omega Pride"></div>
             <div class="product-info">
-                <span class="category-tag">Neuro</span>
+                <div class="status-row">
+                    <span class="category-tag">Neuro</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
                 <h3>Omega Pride</h3>
                 <p class="product-composition">Omega 3 Fatty Acids Softgel Capsules</p>
                 <button class="btn-quote"
@@ -512,7 +577,13 @@
             <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
                     alt="Shanpride 200"></div>
             <div class="product-info">
-                <span class="category-tag">Other</span>
+                <div class="status-row">
+                    <span class="category-tag">Other</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
                 <h3>Shanpride 200</h3>
                 <p class="product-composition">Itraconazole 200mg Capsules</p>
                 <button class="btn-quote"
@@ -525,7 +596,13 @@
             <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
                     alt="Giopride 1"></div>
             <div class="product-info">
-                <span class="category-tag">Diabetic</span>
+                <div class="status-row">
+                    <span class="category-tag">Diabetic</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
                 <h3>Giopride 1</h3>
                 <p class="product-composition">Glimepiride 1mg Tablets</p>
                 <button class="btn-quote"
@@ -538,7 +615,13 @@
             <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
                     alt="Giopride 2"></div>
             <div class="product-info">
-                <span class="category-tag">Diabetic</span>
+                <div class="status-row">
+                    <span class="category-tag">Diabetic</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
                 <h3>Giopride 2</h3>
                 <p class="product-composition">Glimepiride 2mg Tablets</p>
                 <button class="btn-quote"
@@ -551,7 +634,13 @@
             <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
                     alt="Giopride P1"></div>
             <div class="product-info">
-                <span class="category-tag">Diabetic</span>
+                <div class="status-row">
+                    <span class="category-tag">Diabetic</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
                 <h3>Giopride P1</h3>
                 <p class="product-composition">Glimepiride 1mg + Pioglitazone 15mg</p>
                 <button class="btn-quote"
@@ -564,7 +653,13 @@
             <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
                     alt="Giopride P2"></div>
             <div class="product-info">
-                <span class="category-tag">Diabetic</span>
+                <div class="status-row">
+                    <span class="category-tag">Diabetic</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
                 <h3>Giopride P2</h3>
                 <p class="product-composition">Glimepiride 2mg + Pioglitazone 15mg</p>
                 <button class="btn-quote"
@@ -577,7 +672,13 @@
             <div class="product-img-box"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
                     alt="Sudaxit M"></div>
             <div class="product-info">
-                <span class="category-tag">Diabetic</span>
+                <div class="status-row">
+                    <span class="category-tag">Diabetic</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span class="dot"></span>
+                        <span class="stock-text">Stock Available</span>
+                    </div>
+                </div>
                 <h3>Sudaxit M</h3>
                 <p class="product-composition">Sitagliptin 50mg + Metformin 500mg</p>
                 <button class="btn-quote"
@@ -585,6 +686,7 @@
                     Details</button>
             </div>
         </div>
+
 
     </main>
 
