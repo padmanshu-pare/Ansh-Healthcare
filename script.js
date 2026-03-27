@@ -154,4 +154,15 @@ function toggleChat() {
     const box = document.getElementById("chatbox");
     box.style.display = box.style.display === "flex" ? "none" : "flex";
 }
-
+// Close Inquiry Modal when "Esc" key is pressed
+window.addEventListener('keydown', (e) => {
+    if (e.key === "Escape" && inqModal.classList.contains('active')) {
+        closeInquiryModal();
+    }
+});
+window.onscroll = function () {
+    let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrolled = (winScroll / height) * 100;
+    document.getElementById("scroll-progress").style.width = scrolled + "%";
+};
