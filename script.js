@@ -70,12 +70,6 @@ inqModal.addEventListener('click', (e) => {
     if (e.target === inqModal) closeInquiryModal();
 });
 
-// // Handle form submission
-// function handleInquirySubmit(event) {
-//     event.preventDefault();
-//     alert('Inquiry Sent Successfully! Our team at Ansh Healthcare will contact you shortly.');
-//     closeInquiryModal();
-// }
 
 document.getElementById("inquiryForm").addEventListener("submit", async function (e) {
     e.preventDefault();
