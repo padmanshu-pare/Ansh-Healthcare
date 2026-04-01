@@ -1587,7 +1587,7 @@
       backdrop-filter: blur(10px);
   }
 
-  .modern-search input:not(:placeholder-shown) + .search-icon {
+  .modern-search input:not(:placeholder-shown)+.search-icon {
       opacity: 0;
       transform: translateY(-50%) translateX(-15px);
   }
