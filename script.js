@@ -32,25 +32,135 @@ function updateCount(el) {
 
 // ✨ DYNAMIC FORMULATIONS DATA
 const formulations = [
-    { name: 'Repride DSR', combo: 'Rabeprazole Sodium 20mg + Domperidone 30mg SR', img: '/Product Images RAW/repride dsr.jpeg' },
-    { name: 'Ruby DSR', combo: 'Pantoprazole 40mg + Domperidone 30mg SR', img: '/Product Images RAW/ruby dsr.jpeg' },
-    { name: 'Tepride 40', combo: 'Telmisartan 40mg Tablets', img: '/Product Images RAW/tepride 40.jpeg' },
-    { name: 'Tepride CT', combo: 'Telmisartan 40mg + Cilnidipine 10mg', img: '/Product Images RAW/tepride ct.jpeg' },
-    { name: 'Tepride CT 6.25', combo: 'Carvedilol 6.25mg Tablets', img: '/Product Images RAW/tepride ct 6.25.jpeg' },
-    { name: 'Tepride AM', combo: 'Telmisartan 40mg + Amlodipine 5mg', img: '/Product Images RAW/tepride am.jpeg' },
-    { name: 'Tepride AMH', combo: 'Telmisartan 40mg + Amlodipine 5mg + HCTZ 12.5mg', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop' },
-    { name: 'Uristill 0.4', combo: 'Tamsulosin Hydrochloride 0.4mg PR', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop' },
-    { name: 'Getin 16', combo: 'Betahistine Hydrochloride 16mg', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop' },
-    { name: 'Alphaneuron D', combo: 'Methylcobalamin 1500mcg + ALA + Vitamins', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop' },
-    { name: 'Oxypride Plus', combo: 'Antioxidants with Multivitamins & Minerals', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop' },
-    { name: 'Omega Pride', combo: 'Omega 3 Fatty Acids Softgel Capsules', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop' },
-    { name: 'Shanpride 200', combo: 'Itraconazole 200mg Capsules', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop' },
-    { name: 'Giopride 1', combo: 'Glimepiride 1mg Tablets', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop' },
-    { name: 'Giopride 2', combo: 'Glimepiride 2mg Tablets', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop' },
-    { name: 'Giopride P1', combo: 'Glimepiride 1mg + Pioglitazone 15mg', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop' },
-    { name: 'Giopride P2', combo: 'Glimepiride 2mg + Pioglitazone 15mg', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop' },
-    { name: 'Sudhaxit M', combo: 'Sitagliptin 50mg + Metformin 500mg', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop' }
+    { name: 'Repride DSR', category: 'Gastro', combo: 'Rabeprazole Sodium 20mg + Domperidone 30mg SR', img: '/Product Images RAW/repride dsr.jpeg' },
+    { name: 'Ruby DSR', category: 'Gastro', combo: 'Pantoprazole 40mg + Domperidone 30mg SR', img: '/Product Images RAW/ruby dsr.jpeg' },
+    { name: 'Tepride 40', category: 'Cardio', combo: 'Telmisartan 40mg Tablets', img: '/Product Images RAW/tepride 40.jpeg' },
+    { name: 'Tepride CT', category: 'Cardio', combo: 'Telmisartan 40mg + Cilnidipine 10mg', img: '/Product Images RAW/tepride ct.jpeg' },
+    { name: 'Tepride CT 6.25', category: 'Cardio', combo: 'Carvedilol 6.25mg Tablets', img: '/Product Images RAW/tepride ct 6.25.jpeg' },
+    { name: 'Tepride AM', category: 'Cardio', combo: 'Telmisartan 40mg + Amlodipine 5mg', img: '/Product Images RAW/tepride am.jpeg' },
+    { name: 'Tepride AMH', category: 'Cardio', combo: 'Telmisartan 40mg + Amlodipine 5mg + HCTZ 12.5mg', img: '/Product Images RAW/tepride amh.jpeg' },
+    { name: 'Uristill 0.4', category: 'Other', combo: 'Tamsulosin Hydrochloride 0.4mg PR', img: '/Product Images RAW/uristill 0.4.jpeg' },
+    { name: 'Getin 16', category: 'Other', combo: 'Betahistine Hydrochloride 16mg', img: '/Product Images RAW/gaitin 16.jpeg' },
+    { name: 'Alphaneuron D', category: 'Neuro', combo: 'Methylcobalamin 1500mcg + ALA + Vitamins', img: '/Product Images RAW/alphaneuron d.jpeg' },
+    { name: 'Oxypride Plus', category: 'Neuro', combo: 'Antioxidants with Multivitamins & Minerals', img: '/Product Images RAW/oxypride plus.jpeg' },
+    { name: 'Omega Pride', category: 'Neuro', combo: 'Omega 3 Fatty Acids Softgel Capsules', img: '/Product Images RAW/omegapride.jpeg' },
+    { name: 'Shanpride 200', category: 'Other', combo: 'Itraconazole 200mg Capsules', img: '/Product Images RAW/shanpride 200.jpeg' },
+    { name: 'Giopride 1', category: 'Diabetic', combo: 'Glimepiride 1mg Tablets', img: '/Product Images RAW/giopride 1.jpeg' },
+    { name: 'Giopride 2', category: 'Diabetic', combo: 'Glimepiride 2mg Tablets', img: '/Product Images RAW/geopriide 2.jpeg' },
+    { name: 'Giopride P1', category: 'Diabetic', combo: 'Glimepiride 1mg + Pioglitazone 15mg', img: '/Product Images RAW/giopride p1.jpeg' },
+    { name: 'Giopride P2', category: 'Diabetic', combo: 'Glimepiride 2mg + Pioglitazone 15mg', img: '/Product Images RAW/giopride p2.jpeg' },
+    { name: 'Sudhaxit M', category: 'Diabetic', combo: 'Sitagliptin 50mg + Metformin 500mg', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop' }
 ];
+
+// ✨ PRODUCTS PAGE DYNAMIC LOGIC
+const mainGrid = document.getElementById('mainGrid');
+const searchInput = document.getElementById('searchInput');
+const filterBtns = document.querySelectorAll('.filter-btn');
+
+if (mainGrid) {
+    let currentCategory = 'all';
+
+    function renderProducts(category, query) {
+        mainGrid.innerHTML = '';
+
+        let filtered = formulations;
+        if (category !== 'all') {
+            filtered = filtered.filter(p => p.category === category);
+        }
+        if (query) {
+            const lowerQuery = query.toLowerCase();
+            filtered = filtered.filter(p => p.name.toLowerCase().includes(lowerQuery) || p.combo.toLowerCase().includes(lowerQuery));
+        }
+
+        filtered.forEach(product => {
+            const card = document.createElement('div');
+            card.className = 'product-card reveal';
+            card.setAttribute('data-category', product.category);
+            card.innerHTML = `
+                <div class="product-img-box"><img src="${product.img}" alt="${product.name}"></div>
+                <div class="product-info">
+                    <div class="status-row">
+                        <span class="category-tag">${product.category}</span>
+                        <div style="display:flex; align-items:center; gap:6px;">
+                            <span class="dot"></span>
+                            <span class="stock-text">Stock Available</span>
+                        </div>
+                    </div>
+                    <h3>${product.name}</h3>
+                    <p class="product-composition">${product.combo}</p>
+                    <button class="btn-quote js-open-popup" data-name="${product.name}" data-cat="${product.category}" data-comp="${product.combo}" data-img="${product.img}">See Details</button>
+                </div>
+            `;
+            mainGrid.appendChild(card);
+
+            // Add observer for entrance animation if available
+            if (typeof revealOnScroll !== 'undefined') {
+                revealOnScroll.observe(card);
+            }
+        });
+
+        setupPopupListeners();
+    }
+
+    function setupPopupListeners() {
+        document.querySelectorAll('.js-open-popup').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const b = e.currentTarget;
+                document.getElementById('modalTitle').innerText = b.getAttribute('data-name');
+                document.getElementById('modalCat').innerText = b.getAttribute('data-cat');
+                document.getElementById('modalComp').innerText = b.getAttribute('data-comp');
+                document.getElementById('modalImg').src = b.getAttribute('data-img');
+
+                const modal = document.getElementById('productModal');
+                if (modal) {
+                    modal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+    }
+
+    // Modal close logic for products.html
+    const productModal = document.getElementById('productModal');
+    if (productModal) {
+        const closeBtns = document.querySelectorAll('.modal-close');
+        closeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                productModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        productModal.addEventListener('click', (e) => {
+            if (e.target === productModal) {
+                productModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+
+    // Filter Buttons logic
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            const targetBtn = e.currentTarget;
+            targetBtn.classList.add('active');
+
+            currentCategory = targetBtn.getAttribute('data-cat');
+            renderProducts(currentCategory, searchInput ? searchInput.value : '');
+        });
+    });
+
+    // Search logic
+    if (searchInput) {
+        searchInput.addEventListener('keyup', (e) => {
+            renderProducts(currentCategory, e.target.value);
+        });
+    }
+
+    // Initial render
+    renderProducts(currentCategory, '');
+}
 
 // ✨ PRODUCT MODAL LOGIC & DYNAMIC INJECTION
 const prodModal = document.getElementById('productModal');
@@ -235,4 +345,4 @@ window.addEventListener('scroll', function () {
         progressEl.style.width = scrolled + "%";
     }
 });
-    
+
