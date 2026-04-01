@@ -5,6 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ansh Healthcare | Premium Medical Care & Wholesale Pharma</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Ansh Healthcare is a massive medical ecosystem and premier wholesale pharmaceutical distributor serving 5+ major cities since 2013.">
+    <meta property="og:title" content="Ansh Healthcare - Premium Wholesale Pharma">
+    <meta property="og:description"
+        content="Pan-India distribution and personalized healthcare. Join 200+ specialists relying on Ansh Healthcare.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -29,8 +37,7 @@
             <li><a href="#products">Products</a></li>
             <li><a href="#stockists">Stockists</a></li>
         </ul>
-        <button class="btn-primary" onclick="openInquiryModal()">Inquiry <i
-                class="fa-solid fa-arrow-right"></i></button>
+        <button class="btn-primary js-open-inquiry">Inquiry <i class="fa-solid fa-arrow-right"></i></button>
     </header>
 
     <section id="home" class="hero">
@@ -38,7 +45,7 @@
             <h1>Scale Meets<br><span>Precision.</span></h1>
             <p>From massive wholesale distribution to world-class personalized healthcare, Ansh Healthcare redefines the
                 medical supply chain.</p>
-            <button class="btn-primary" onclick="openInquiryModal()">Become a Partner <i class=" fa-solid
+            <button class="btn-primary js-open-inquiry">Become a Partner <i class=" fa-solid
                 fa-arrow-right"></i></button>
         </div>
         <div class="hero-image reveal">
@@ -92,7 +99,7 @@
     </section>
 
     <section id="therapies" class="therapies-section">
-        <h2 class="section-title reveal" style="margin-bottom: 80px;">Therapies</h2>
+        <h2 class="section-title reveal">Therapies</h2>
         <div class="therapies-card reveal">
             <div class="therapy-item">
                 <div class="therapy-icon"><i class="fa-solid fa-brain"></i></div>
@@ -126,7 +133,7 @@
     </section>
 
     <section id="products" class="products-section">
-        <div class="watermark" style="color: rgba(255,255,255,0.02); -webkit-text-stroke: 1px rgba(255,255,255,0.05);">
+        <div class="watermark watermark-dark">
             PORTFOLIO</div>
         <h2 class="section-title reveal">Wholesale Products</h2>
 
@@ -156,147 +163,26 @@
 
         <div class="formulations-index reveal">
             <h3>Our Flagship Formulations</h3>
-            <p style="color: #aaa; margin-bottom: 40px; font-size: 14px;">Click any product to view its composition.</p>
+            <p class="formulations-subtitle">Click any product to view its composition.</p>
 
-            <div class="pill-grid">
-
-                <div class="formulation-pill"
-                    onclick="openProductModal('Repride DSR', 'Rabeprazole Sodium 20mg + Domperidone 30mg SR', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop')">
-                    <img src="/Product Images RAW/repride dsr.jpeg" class="formulation-thumb" alt="Repride DSR">
-                    <span class="formulation-name">Repride DSR</span>
-                </div>
-
-                <div class="formulation-pill"
-                    onclick="openProductModal('Ruby DSR', 'Pantoprazole 40mg + Domperidone 30mg SR', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop')">
-                    <img src="/Product Images RAW/ruby dsr.jpeg" class="formulation-thumb" alt="Ruby DSR">
-                    <span class="formulation-name">Ruby DSR</span>
-                </div>
-
-                <div class="formulation-pill"
-                    onclick="openProductModal('Tepride 40', 'Telmisartan 40mg Tablets', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop')">
-                    <img src="/Product Images RAW/tepride 40.jpeg" class="formulation-thumb" alt="Tepride 40">
-                    <span class="formulation-name">Tepride 40</span>
-                </div>
-
-                <div class="formulation-pill"
-                    onclick="openProductModal('Tepride CR', 'Telmisartan 40mg + Cilnidipine 10mg', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop')">
-                    <img src="/Product Images RAW/tepride ct.jpeg" class="formulation-thumb" alt="Tepride CT">
-                    <span class="formulation-name">Tepride CT</span>
-                </div>
-
-                <div class="formulation-pill"
-                    onclick="openProductModal('Tepride 6.25', 'Carvedilol 6.25mg Tablets', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop')">
-                    <img src="/Product Images RAW/tepride ct 6.25.jpeg" class="formulation-thumb" alt="Tepride CT 6.25">
-                    <span class="formulation-name">Tepride CT 6.25</span>
-                </div>
-
-                <div class="formulation-pill"
-                    onclick="openProductModal('Tepride AM', 'Telmisartan 40mg + Amlodipine 5mg', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop')">
-                    <img src="/Product Images RAW/tepride am.jpeg" class="formulation-thumb" alt="Tepride AM">
-                    <span class="formulation-name">Tepride AM</span>
-                </div>
-
-                <div class="formulation-pill"
-                    onclick="openProductModal('Tepride AMH', 'Telmisartan 40mg + Amlodipine 5mg + HCTZ 12.5mg', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop"
-                        class="formulation-thumb" alt="Tepride AMH">
-                    <span class="formulation-name">Tepride AMH</span>
-                </div>
-
-                <div class="formulation-pill"
-                    onclick="openProductModal('Uristill 0.4', 'Tamsulosin Hydrochloride 0.4mg PR', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop"
-                        class="formulation-thumb" alt="Uristill 0.4">
-                    <span class="formulation-name">Uristill 0.4</span>
-                </div>
-
-                <div class="formulation-pill"
-                    onclick="openProductModal('Getin 16', 'Betahistine Hydrochloride 16mg', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop"
-                        class="formulation-thumb" alt="Getin 16">
-                    <span class="formulation-name">Getin 16</span>
-                </div>
-
-                <div class="formulation-pill"
-                    onclick="openProductModal('Alphaneuron D', 'Methylcobalamin 1500mcg + ALA + Vitamins', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop"
-                        class="formulation-thumb" alt="Alphaneuron D">
-                    <span class="formulation-name">Alphaneuron D</span>
-                </div>
-
-                <div class="formulation-pill"
-                    onclick="openProductModal('Oxypride Plus', 'Antioxidants with Multivitamins & Minerals', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop"
-                        class="formulation-thumb" alt="Oxypride Plus">
-                    <span class="formulation-name">Oxypride Plus</span>
-                </div>
-
-                <div class="formulation-pill"
-                    onclick="openProductModal('Omega Pride', 'Omega 3 Fatty Acids Softgel Capsules', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop"
-                        class="formulation-thumb" alt="Omega Pride">
-                    <span class="formulation-name">Omega Pride</span>
-                </div>
-
-                <div class="formulation-pill"
-                    onclick="openProductModal('Shanpride 200', 'Itraconazole 200mg Capsules', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop"
-                        class="formulation-thumb" alt="Shanpride 200">
-                    <span class="formulation-name">Shanpride 200</span>
-                </div>
-
-                <div class="formulation-pill"
-                    onclick="openProductModal('Giopride 1', 'Glimepiride 1mg Tablets', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop"
-                        class="formulation-thumb" alt="Giopride 1">
-                    <span class="formulation-name">Giopride 1</span>
-                </div>
-
-                <div class="formulation-pill"
-                    onclick="openProductModal('Giopride 2', 'Glimepiride 2mg Tablets', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop"
-                        class="formulation-thumb" alt="Giopride 2">
-                    <span class="formulation-name">Giopride 2</span>
-                </div>
-
-                <div class="formulation-pill"
-                    onclick="openProductModal('Giopride P1', 'Glimepiride 1mg + Pioglitazone 15mg', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop"
-                        class="formulation-thumb" alt="Giopride P1">
-                    <span class="formulation-name">Giopride P1</span>
-                </div>
-
-                <div class="formulation-pill"
-                    onclick="openProductModal('Giopride P2', 'Glimepiride 2mg + Pioglitazone 15mg', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop"
-                        class="formulation-thumb" alt="Giopride P2">
-                    <span class="formulation-name">Giopride P2</span>
-                </div>
-
-                <div class="formulation-pill"
-                    onclick="openProductModal('Sudhaxit M', 'Sitagliptin 50mg + Metformin 500mg', 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop')">
-                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop"
-                        class="formulation-thumb" alt="Sudhaxit M">
-                    <span class="formulation-name">Sudhaxit M</span>
-                </div>
-
+            <div class="pill-grid" id="formulationGrid">
+                <!-- Data populated dynamically via Javascript -->
             </div>
         </div>
 
-        <div style="text-align: center; margin-top: 80px;" class="reveal">
+        <div class="btn-wrap reveal">
             <a href="products.html" class="btn-white">Download Full Catalog</a>
         </div>
     </section>
 
     <div class="modal-overlay" id="productModal">
         <div class="modal-content">
-            <i class="fa-solid fa-xmark close-btn" onclick="closeProductModal()"></i>
+            <i class="fa-solid fa-xmark close-btn js-close-product"></i>
             <img id="prodModalImg" src="" alt="Product Image" class="modal-product-img">
-            <h5 style="color: #888;">Formulation</h5>
+            <h5 class="modal-product-label">Formulation</h5>
             <h3 id="prodModalName">Medicine Name</h3>
-            <p id="prodModalCombo" style="color: var(--accent-red); font-size: 18px;">Combination goes here</p>
-            <button class="btn-primary" style="width: 100%; justify-content: center;">Request Details<i
-                    class="fa-solid fa-paper-plane"></i></button>
+            <p id="prodModalCombo" class="modal-product-combo">Combination goes here</p>
+            <button class="btn-primary btn-full-width">Request Details<i class="fa-solid fa-paper-plane"></i></button>
         </div>
     </div>
 
@@ -319,7 +205,7 @@
                 <p>Bangalore</p>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 80px;" class="reveal">
+        <div class="btn-wrap reveal">
             <a href="stockists.html" class="btn-primary">All Stockists</a>
         </div>
     </section>
@@ -338,8 +224,8 @@
             </div>
         </div>
         <div class="slider-dots reveal">
-            <div class="dot active" onclick="setSlide(0)"></div>
-            <div class="dot" onclick="setSlide(1)"></div>
+            <div class="dot active" data-index="0"></div>
+            <div class="dot" data-index="1"></div>
         </div>
     </section>
     <section class="location-section">
@@ -347,11 +233,11 @@
 
         <div class="map-container reveal">
             <iframe src="https://www.google.com/maps?q=22.694617859978273,75.93034774441652&z=17&output=embed"
-                style="border:0; width:100%; height:400px;" loading="lazy">
+                class="map-iframe" loading="lazy">
             </iframe>
-            <div style="margin-top:20px;">
+            <div class="map-btn-container">
                 <a href="geo:22.694617859978273,75.93034774441652?q=22.694617859978273,75.93034774441652"
-                    onclick="openMaps(event)" class="btn-primary">
+                    class="btn-primary js-open-maps">
                     Open in Maps <i class="fa-solid fa-location-arrow"></i>
                 </a>
             </div>
@@ -410,7 +296,7 @@
     </footer>
 
     <div class="contact-cloud" id="whatsappPopup">
-        <span class="close-wa" onclick="closeWhatsApp()">✕</span>
+        <span class="close-wa js-close-wa">✕</span>
         <i class="fa-brands fa-whatsapp"></i> Contact on WhatsApp
     </div>
 
@@ -419,8 +305,8 @@
     </a>
 
     <div class="modal-overlay" id="inquiryModal">
-        <div class="modal-content" style="max-width: 600px; text-align: left;">
-            <i class="fa-solid fa-xmark close-btn" onclick="closeInquiryModal()"></i>
+        <div class="modal-content inquiry-modal-content">
+            <i class="fa-solid fa-xmark close-btn js-close-inquiry"></i>
 
             <h5>Get in Touch</h5>
             <h3>Wholesale Inquiry</h3>
@@ -445,19 +331,16 @@
                     <label>Requirements / Description</label>
                     <textarea name="message" rows="4" placeholder="Tell us about the medicines..." required></textarea>
                 </div>
-                <button type="submit" class="btn-primary"
-                    style="width: 100%; justify-content: center; margin-top: 10px;">
+                <button type="submit" class="btn-primary btn-full-width inquiry-btn">
                     Submit Inquiry <i class="fa-solid fa-paper-plane"></i>
                 </button>
-                <p id="formStatus" style="font-size:12px; margin-top:10px; font-weight:600;"></p>
+                <p id="formStatus" class="form-status-msg"></p>
 
             </form>
         </div>
     </div>
 
     <script src="script.js"></script>
-
-    </script>
 </body>
 
 </html>
