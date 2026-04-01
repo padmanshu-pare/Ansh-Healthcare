@@ -1,7 +1,14 @@
+if (history.scrollRestoration) {
+    history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
 window.addEventListener('scroll', () => {
     const header = document.getElementById('header');
-    if (window.scrollY > 50) header.classList.add('scrolled');
-    else header.classList.remove('scrolled');
+    if (header) {
+        if (window.scrollY > 50) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+    }
 });
 
 const reveals = document.querySelectorAll('.reveal');
@@ -111,7 +118,7 @@ if (mainGrid) {
                 document.getElementById('modalComp').innerText = b.getAttribute('data-comp');
                 document.getElementById('modalImg').src = b.getAttribute('data-img');
 
-                const modal = document.getElementById('productModal');
+                const modal = document.getElementById('catalogProductModal');
                 if (modal) {
                     modal.style.display = 'flex';
                     document.body.style.overflow = 'hidden';
@@ -121,9 +128,9 @@ if (mainGrid) {
     }
 
     // Modal close logic for products.html
-    const productModal = document.getElementById('productModal');
+    const productModal = document.getElementById('catalogProductModal');
     if (productModal) {
-        const closeBtns = document.querySelectorAll('.modal-close');
+        const closeBtns = document.querySelectorAll('.catalog-modal-close');
         closeBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 productModal.style.display = 'none';
@@ -190,13 +197,15 @@ if (formulationGrid) {
 }
 
 const closeProdBtn = document.querySelector('.js-close-product');
-if (closeProdBtn) {
+if (closeProdBtn && prodModal) {
     closeProdBtn.addEventListener('click', () => prodModal.classList.remove('active'));
 }
 
-prodModal.addEventListener('click', (e) => {
-    if (e.target === prodModal) prodModal.classList.remove('active');
-});
+if (prodModal) {
+    prodModal.addEventListener('click', (e) => {
+        if (e.target === prodModal) prodModal.classList.remove('active');
+    });
+}
 
 // ✨ SLIDER LOGIC
 let currentSlide = 0;
