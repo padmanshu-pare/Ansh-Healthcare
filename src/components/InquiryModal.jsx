@@ -15,6 +15,18 @@ export default function InquiryModal({ isOpen, onClose }) {
         const data = new FormData(form);
 
         try {
+            // --- NEW: Save TO LOCAL DATABASE FOR ADMIN TRACKER ---
+            const existingInquiries = JSON.parse(localStorage.getItem('ansh_inquiries') || '[]');
+            const newInquiry = {
+                name: data.get('name'),
+                email: data.get('email'),
+                mobile: data.get('mobile'),
+                message: data.get('message'),
+                date: new Date().toISOString()
+            };
+            localStorage.setItem('ansh_inquiries', JSON.stringify([newInquiry, ...existingInquiries]));
+
+            // --- Send to Formspree as before ---
             const response = await fetch("https://formspree.io/f/mvzwnaky", {
                 method: "POST",
                 body: data,

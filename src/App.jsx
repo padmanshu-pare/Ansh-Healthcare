@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import Products from './pages/Products';
+import Admin from './pages/Admin';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import InquiryModal from './components/InquiryModal';
@@ -10,9 +11,9 @@ import './index.css';
 
 function MainLayout({ openInquiry, children }) {
     const location = useLocation();
-    const isProductsPage = location.pathname === '/products';
+    const isSpecialPage = ['/products', '/admin'].includes(location.pathname);
     
-    if (isProductsPage) return <>{children}</>;
+    if (isSpecialPage) return <>{children}</>;
 
     return (
         <>
@@ -35,6 +36,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home openInquiry={handleOpenInquiry} />} />
                     <Route path="/products" element={<Products openInquiry={handleOpenInquiry} />} />
+                    <Route path="/admin" element={<Admin />} />
                 </Routes>
             </MainLayout>
             <WhatsAppPopup />

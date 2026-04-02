@@ -1881,3 +1881,255 @@
       color: #22c55e;
       text-transform: uppercase;
   }
+  /* ================= ADMIN DASHBOARD STYLES ================= */
+  .admin-login-screen {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--light-black);
+      padding: 20px;
+  }
+
+  .login-card {
+      background: var(--pure-black);
+      padding: 50px;
+      border-radius: 30px;
+      max-width: 450px;
+      width: 100%;
+      text-align: center;
+      border: 1px solid #222;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  }
+
+  .login-card h3 {
+      font-size: 28px;
+      color: white;
+      margin-bottom: 10px;
+      font-weight: 800;
+  }
+
+  .login-card p {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 30px;
+  }
+
+  .login-card input {
+      width: 100%;
+      padding: 18px;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 12px;
+      color: white;
+      font-size: 16px;
+      outline: none;
+      transition: var(--transition);
+  }
+
+  .login-card input:focus {
+      border-color: var(--accent-red);
+      background: #150505;
+  }
+
+  .back-to-site {
+      display: block;
+      margin: 20px auto 0;
+      background: transparent;
+      border: none;
+      color: #555;
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 1px;
+      cursor: pointer;
+  }
+
+  .admin-dashboard {
+      display: flex;
+      min-height: 100vh;
+      background: #080808;
+      color: white;
+  }
+
+  .admin-sidebar {
+      width: 280px;
+      background: var(--pure-black);
+      border-right: 1px solid #222;
+      display: flex;
+      flex-direction: column;
+      padding: 40px 20px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+  }
+
+  .sidebar-brand {
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 60px;
+      text-align: center;
+  }
+
+  .sidebar-brand span {
+      color: var(--accent-red);
+  }
+
+  .admin-sidebar nav {
+      flex: 1;
+  }
+
+  .nav-item {
+      padding: 16px 20px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #666;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      transition: var(--transition);
+  }
+
+  .nav-item:hover, .nav-item.active {
+      background: #111;
+      color: white;
+  }
+
+  .nav-item.active i {
+      color: var(--accent-red);
+  }
+
+  .sidebar-footer {
+      padding-top: 20px;
+      border-top: 1px solid #222;
+      color: #444;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+  }
+
+  .admin-main {
+      flex: 1;
+      padding: 40px 5%;
+  }
+
+  .admin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 50px;
+  }
+
+  .admin-profile {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+  }
+
+  .avatar {
+      width: 40px;
+      height: 40px;
+      background: var(--accent-red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+  }
+
+  .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-bottom: 60px;
+  }
+
+  .stat-card {
+      background: #111;
+      border: 1px solid #222;
+      padding: 30px;
+      border-radius: 20px;
+  }
+
+  .stat-label {
+      font-size: 12px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+  }
+
+  .stat-value {
+      font-size: 40px;
+      font-weight: 900;
+      margin-bottom: 15px;
+  }
+
+  .stat-trend {
+      font-size: 12px;
+      font-weight: 700;
+      color: #555;
+  }
+
+  .stat-trend.green { color: #22c55e; }
+  .stat-trend.orange { color: #f59e0b; }
+
+  .inquiry-section h3 {
+      font-size: 24px;
+      margin-bottom: 30px;
+  }
+
+  .table-wrapper {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 20px;
+      overflow: hidden;
+  }
+
+  .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+  }
+
+  .admin-table th {
+      padding: 20px;
+      background: #181818;
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #555;
+      letter-spacing: 1px;
+  }
+
+  .admin-table td {
+      padding: 20px;
+      border-bottom: 1px solid #181818;
+      font-size: 14px;
+  }
+
+  .firm-name { font-weight: 800; color: white; }
+  .firm-meta { font-size: 12px; color: #555; margin-top: 4px; }
+
+  .badge-pill {
+      background: #222;
+      padding: 6px 12px;
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 800;
+      color: white;
+      text-transform: uppercase;
+  }
+
+  .status-badge {
+      color: #22c55e;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 12px;
+  }
+
