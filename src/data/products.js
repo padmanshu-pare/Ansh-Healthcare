@@ -1,0 +1,20 @@
+export const formulations = [
+    { name: 'Repride DSR', category: 'Gastro', combo: 'Rabeprazole Sodium 20mg + Domperidone 30mg SR', img: '/Product Images RAW/repride dsr.jpeg' },
+    { name: 'Ruby DSR', category: 'Gastro', combo: 'Pantoprazole 40mg + Domperidone 30mg SR', img: '/Product Images RAW/ruby dsr.jpeg' },
+    { name: 'Tepride 40', category: 'Cardio', combo: 'Telmisartan 40mg Tablets', img: '/Product Images RAW/tepride 40.jpeg' },
+    { name: 'Tepride CT', category: 'Cardio', combo: 'Telmisartan 40mg + Cilnidipine 10mg', img: '/Product Images RAW/tepride ct.jpeg' },
+    { name: 'Tepride CT 6.25', category: 'Cardio', combo: 'Carvedilol 6.25mg Tablets', img: '/Product Images RAW/tepride ct 6.25.jpeg' },
+    { name: 'Tepride AM', category: 'Cardio', combo: 'Telmisartan 40mg + Amlodipine 5mg', img: '/Product Images RAW/tepride am.jpeg' },
+    { name: 'Tepride AMH', category: 'Cardio', combo: 'Telmisartan 40mg + Amlodipine 5mg + HCTZ 12.5mg', img: '/Product Images RAW/tepride amh.jpeg' },
+    { name: 'Uristill 0.4', category: 'Other', combo: 'Tamsulosin Hydrochloride 0.4mg PR', img: '/Product Images RAW/uristill 0.4.jpeg' },
+    { name: 'Getin 16', category: 'Other', combo: 'Betahistine Hydrochloride 16mg', img: '/Product Images RAW/gaitin 16.jpeg' },
+    { name: 'Alphaneuron D', category: 'Neuro', combo: 'Methylcobalamin 1500mcg + ALA + Vitamins', img: '/Product Images RAW/alphaneuron d.jpeg' },
+    { name: 'Oxypride Plus', category: 'Neuro', combo: 'Antioxidants with Multivitamins & Minerals', img: '/Product Images RAW/oxypride plus.jpeg' },
+    { name: 'Omega Pride', category: 'Neuro', combo: 'Omega 3 Fatty Acids Softgel Capsules', img: '/Product Images RAW/omegapride.jpeg' },
+    { name: 'Shanpride 200', category: 'Other', combo: 'Itraconazole 200mg Capsules', img: '/Product Images RAW/shanpride 200.jpeg' },
+    { name: 'Giopride 1', category: 'Diabetic', combo: 'Glimepiride 1mg Tablets', img: '/Product Images RAW/giopride 1.jpeg' },
+    { name: 'Giopride 2', category: 'Diabetic', combo: 'Glimepiride 2mg Tablets', img: '/Product Images RAW/geopriide 2.jpeg' },
+    { name: 'Giopride P1', category: 'Diabetic', combo: 'Glimepiride 1mg + Pioglitazone 15mg', img: '/Product Images RAW/giopride p1.jpeg' },
+    { name: 'Giopride P2', category: 'Diabetic', combo: 'Glimepiride 2mg + Pioglitazone 15mg', img: '/Product Images RAW/giopride p2.jpeg' },
+    { name: 'Sudhaxit M', category: 'Diabetic', combo: 'Sitagliptin 50mg + Metformin 500mg', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&auto=format&fit=crop' }
+];
