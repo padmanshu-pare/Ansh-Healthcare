@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Catalog | Ansh Healthcare</title>
+    <meta name="description" content="Browse the complete pharmaceutical product catalog from Ansh Healthcare. Premium formulations across Gastro, Cardio, Neuro, Diabetic and specialty therapies.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="catalog-page" style="background-color: #f9fafb; min-height: 100vh;">
+
+        <!-- ================= CATALOG NAV ================= -->
+        <header class="catalog-nav">
+            <div class="logo">ANSH HEALTHCARE<span>.</span></div>
+            <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+        </header>
+
+        <!-- ================= HERO ================= -->
+        <section class="catalog-hero">
+            <div class="catalog-hero-inner">
+                <div class="hero-badge">OUR FORMULARIES</div>
+                <h1>Premium <span>Portfolio</span></h1>
+                <p>Discover our comprehensive range of high-quality formulations, tailored for maximum efficacy across all major therapies.</p>
+                <div class="modern-search">
+                    <input type="text" id="searchInput" placeholder="Search brands, compositions..." />
+                    <i class="fa-solid fa-search search-icon"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FILTERS ================= -->
+        <div class="modern-filters" id="filterBar">
+            <button class="filter-btn active" data-category="all">View All</button>
+            <button class="filter-btn" data-category="Gastro"><i class="fa-solid fa-pills"></i> Gastroenterology</button>
+            <button class="filter-btn" data-category="Cardio"><i class="fa-solid fa-heart-pulse"></i> Cardiology</button>
+            <button class="filter-btn" data-category="Neuro">Neurology</button>
+            <button class="filter-btn" data-category="Diabetic">Diabetology</button>
+            <button class="filter-btn" data-category="Other">Specialty</button>
+        </div>
+
+        <!-- ================= PRODUCT GRID (dynamic) ================= -->
+        <main class="product-grid" id="mainGrid" style="padding: 40px 5%;"></main>
+
+        <!-- ================= PRODUCT MODAL ================= -->
+        <div class="catalog-modal-overlay" id="productModal">
+            <div class="catalog-modal-content">
+                <span class="catalog-modal-close" id="productModalClose">&times;</span>
+                <div class="catalog-modal-left">
+                    <img id="productModalImg" src="" alt="" />
+                </div>
+                <div class="catalog-modal-right">
+                    <span class="category-tag" id="productModalCategory"></span>
+                    <h2 id="productModalName"></h2>
+                    <p id="productModalCombo" style="margin: 20px 0; color: #4b5563; font-size: 18px;"></p>
+                    <button class="btn-quote" id="productModalInquire">Inquire Now <i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= INQUIRY MODAL ================= -->
+        <div class="modal-overlay" id="inquiryModal">
+            <div class="modal-content inquiry-modal-content">
+                <i class="fa-solid fa-xmark close-btn" id="closeInquiry"></i>
+                <h5>Get in Touch</h5>
+                <h3>Wholesale Inquiry</h3>
+                <form id="inquiryForm" class="inquiry-form">
+                    <div class="input-group">
+                        <label>Full Name / Firm Name</label>
+                        <input type="text" name="name" placeholder="e.g. Rajesh Yadav / Apex Pharma" required />
+                    </div>
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" name="email" placeholder="rajesh@example.com" required />
+                    </div>
+                    <div class="input-group">
+                        <label>Mobile Number</label>
+                        <input type="number" name="mobile" placeholder="+91 98765 43210" required />
+                    </div>
+                    <div class="input-group">
+                        <label>Requirements / Description</label>
+                        <textarea name="message" rows="4" placeholder="Tell us about the medicines..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary btn-full-width inquiry-btn" id="inquirySubmitBtn">
+                        Submit Inquiry <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                    <p class="form-status-msg" id="formStatus"></p>
+                </form>
+            </div>
+        </div>
+
+        <!-- ================= FOOTER ================= -->
+        <footer style="text-align: center; padding: 40px; font-size: 12px; font-weight: 800; text-transform: uppercase;">
+            COPYRIGHT © 2026 ANSH HEALTHCARE LTD.
+        </footer>
+    </div>
+
+    <script src="js/products-data.js"></script>
+    <script src="js/products.js"></script>
+</body>
+
+</html>

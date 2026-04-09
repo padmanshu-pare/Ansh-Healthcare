@@ -1,8 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function InquiryModal({ isOpen, onClose }) {
     const [status, setStatus] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+    // Lock body scroll when modal is open
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+        return () => { document.body.style.overflow = 'auto'; };
+    }, [isOpen]);
+
+    // Close on Escape key
+    useEffect(() => {
+        const handleKey = (e) => {
+            if (e.key === 'Escape' && isOpen) onClose();
+        };
+        window.addEventListener('keydown', handleKey);
+        return () => window.removeEventListener('keydown', handleKey);
+    }, [isOpen, onClose]);
 
     if (!isOpen) return null;
 
@@ -15,7 +34,7 @@ export default function InquiryModal({ isOpen, onClose }) {
         const data = new FormData(form);
 
         try {
-            // --- NEW: Save TO LOCAL DATABASE FOR ADMIN TRACKER ---
+            // Save to localStorage for admin tracker
             const existingInquiries = JSON.parse(localStorage.getItem('ansh_inquiries') || '[]');
             const newInquiry = {
                 name: data.get('name'),
@@ -26,7 +45,7 @@ export default function InquiryModal({ isOpen, onClose }) {
             };
             localStorage.setItem('ansh_inquiries', JSON.stringify([newInquiry, ...existingInquiries]));
 
-            // --- Send to Formspree as before ---
+            // Send to Formspree
             const response = await fetch("https://formspree.io/f/mvzwnaky", {
                 method: "POST",
                 body: data,
@@ -51,7 +70,7 @@ export default function InquiryModal({ isOpen, onClose }) {
     };
 
     return (
-        <div className="modal-overlay active" onClick={(e) => { if(e.target.classList.contains('modal-overlay')) onClose() }}>
+        <div className="modal-overlay active" onClick={(e) => { if (e.target.classList.contains('modal-overlay')) onClose(); }}>
             <div className="modal-content inquiry-modal-content">
                 <i className="fa-solid fa-xmark close-btn js-close-inquiry" onClick={onClose}></i>
                 <h5>Get in Touch</h5>

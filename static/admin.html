@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard | Ansh Healthcare</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- ================= LOGIN SCREEN ================= -->
+    <div class="admin-login-screen" id="loginScreen">
+        <div class="login-card reveal active">
+            <div class="logo" style="margin-bottom: 20px; font-size: 24px; font-weight: 900; color: white;">
+                ANSH HEALTHCARE<span style="color: var(--accent-red);">.</span>
+            </div>
+            <h3>Owner Authorization</h3>
+            <p>Enter administrative credentials to access the ecosystem tracker.</p>
+            <form id="loginForm">
+                <input type="password" id="passwordInput" placeholder="Authorization Code" required />
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 20px;">
+                    Unlock Dashboard <i class="fa-solid fa-shield-halved"></i>
+                </button>
+            </form>
+            <a href="index.html" class="back-to-site">Return to Public Portal</a>
+        </div>
+    </div>
+
+    <!-- ================= DASHBOARD ================= -->
+    <div class="admin-dashboard" id="dashboardScreen" style="display: none;">
+        <aside class="admin-sidebar">
+            <div class="sidebar-brand">ANSH<span>.</span>ADMIN</div>
+            <nav>
+                <div class="nav-item active"><i class="fa-solid fa-chart-line"></i> Analytics Overview</div>
+                <div class="nav-item"><i class="fa-solid fa-inbox"></i> Inquiries (<span id="sidebarCount">0</span>)</div>
+                <div class="nav-item"><i class="fa-solid fa-capsules"></i> Product Inventory</div>
+                <div class="nav-item"><i class="fa-solid fa-gear"></i> System Settings</div>
+            </nav>
+            <div class="sidebar-footer" id="logoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </div>
+        </aside>
+
+        <main class="admin-main">
+            <header class="admin-header">
+                <h2>Analytics Dashboard</h2>
+                <div class="admin-profile">
+                    <span>Ansh Healthcare Admin</span>
+                    <div class="avatar">A</div>
+                </div>
+            </header>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Total Inquiries</div>
+                    <div class="stat-value" id="statTotal">0</div>
+                    <div class="stat-trend green"><i class="fa-solid fa-arrow-up"></i> +12% from last week</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Active Partners</div>
+                    <div class="stat-value" id="statPartners">0</div>
+                    <div class="stat-trend"><i class="fa-solid fa-handshake"></i> Verified Firms</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Inquiries Today</div>
+                    <div class="stat-value" id="statToday">0</div>
+                    <div class="stat-trend orange"><i class="fa-solid fa-bolt"></i> Urgent Attention Red</div>
+                </div>
+            </div>
+
+            <section class="inquiry-section">
+                <h3>Recent Wholesale Leads</h3>
+                <div class="table-wrapper">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Firm / Name</th>
+                                <th>Contact Information</th>
+                                <th>Therapy Interest</th>
+                                <th>Date Received</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inquiryTableBody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+
+</html>

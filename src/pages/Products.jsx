@@ -1,13 +1,13 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { formulations } from '../data/products';
-import ProductModal from '../components/ProductModal';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export default function Products({ openInquiry }) {
     const [searchQuery, setSearchQuery] = useState('');
     const [currentCategory, setCurrentCategory] = useState('all');
     const [selectedProduct, setSelectedProduct] = useState(null);
+    const modalImgRef = useRef(null);
 
     const filteredProducts = useMemo(() => {
         let filtered = formulations;
@@ -22,6 +22,31 @@ export default function Products({ openInquiry }) {
     }, [searchQuery, currentCategory]);
 
     useScrollReveal([filteredProducts]);
+
+    const openModal = (product) => {
+        setSelectedProduct(product);
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeModal = () => {
+        setSelectedProduct(null);
+        document.body.style.overflow = 'auto';
+    };
+
+    const handleMouseMove = (e) => {
+        if (!modalImgRef.current) return;
+        const { left, top, width, height } = e.target.getBoundingClientRect();
+        const x = ((e.clientX - left) / width) * 100;
+        const y = ((e.clientY - top) / height) * 100;
+        modalImgRef.current.style.transformOrigin = `${x}% ${y}%`;
+        modalImgRef.current.style.transform = "scale(2.5)";
+    };
+
+    const handleMouseLeave = () => {
+        if (!modalImgRef.current) return;
+        modalImgRef.current.style.transformOrigin = "center";
+        modalImgRef.current.style.transform = "scale(1)";
+    };
 
     return (
         <div className="catalog-page" style={{ backgroundColor: "#f9fafb", minHeight: "100vh" }}>
@@ -39,6 +64,7 @@ export default function Products({ openInquiry }) {
                     <div className="modern-search">
                         <input 
                             type="text" 
+                            id="searchInput"
                             placeholder="Search brands, compositions..." 
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
@@ -59,7 +85,7 @@ export default function Products({ openInquiry }) {
 
             <main className="product-grid" id="mainGrid" style={{ padding: "40px 5%" }}>
                 {filteredProducts.map((product, idx) => (
-                    <div key={idx} className="product-card reveal" onClick={() => setSelectedProduct(product)} style={{ cursor: 'pointer' }}>
+                    <div key={idx} className="product-card reveal" onClick={() => openModal(product)} style={{ cursor: 'pointer' }}>
                         <div className="product-img-box"><img src={product.img} alt={product.name} /></div>
                         <div className="product-info">
                             <div className="status-row">
@@ -77,7 +103,31 @@ export default function Products({ openInquiry }) {
                 ))}
             </main>
 
-            <ProductModal isOpen={!!selectedProduct} product={selectedProduct} onClose={() => setSelectedProduct(null)} onInquire={openInquiry} />
+            {/* Catalog Product Modal */}
+            {selectedProduct && (
+                <div className="catalog-modal-overlay" style={{ display: 'flex' }} onClick={(e) => { if (e.target.className === 'catalog-modal-overlay') closeModal(); }}>
+                    <div className="catalog-modal-content">
+                        <span className="catalog-modal-close" onClick={closeModal}>&times;</span>
+                        <div className="catalog-modal-left">
+                            <img 
+                                ref={modalImgRef}
+                                src={selectedProduct.img} 
+                                alt={selectedProduct.name}
+                                onMouseMove={handleMouseMove}
+                                onMouseLeave={handleMouseLeave}
+                            />
+                        </div>
+                        <div className="catalog-modal-right">
+                            <span className="category-tag">{selectedProduct.category}</span>
+                            <h2>{selectedProduct.name}</h2>
+                            <p style={{ margin: "20px 0", color: "#4b5563", fontSize: "18px" }}>{selectedProduct.combo}</p>
+                            <button className="btn-quote" onClick={() => { closeModal(); if(openInquiry) openInquiry(); }}>
+                                Inquire Now <i className="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             <footer style={{textAlign: "center", padding: "40px", fontSize: "12px", fontWeight: "800", textTransform: "uppercase"}}>
                 COPYRIGHT © 2026 ANSH HEALTHCARE LTD.
