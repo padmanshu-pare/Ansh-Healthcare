@@ -1,0 +1,30 @@
+export const formulations = [
+    { name: 'Repride DSR', category: 'Gastroenterology', combo: 'Rabeprazole Sodium (EC) + Domperidone (SR) Capsules', img: '/Product Images RAW/REPRIDE DSR.png', nameParts: [{ text: 'Repride', color: '#111111' }, { text: ' DSR', color: '#7c3aed' }], pdf: '/Product PDFs/Repride_DSR.pdf' },
+    { name: 'Ruby DSR', category: 'Gastroenterology', combo: 'Rabeprazole Sodium (EC) + Domperidone (SR) Capsules', img: '/Product Images RAW/RUBY DSR.png', nameParts: [{ text: 'Ruby', color: '#f97316' }, { text: ' DSR', color: '#111111' }], pdf: '/Product PDFs/Ruby_DSR.pdf' },
+    { name: 'TEPRIDE 40', category: 'Anti-Hypertensive', combo: 'Telmisartan (Micronized) Tablets 40 mg', img: '/Product Images RAW/TEPRIDE 40.png', nameParts: [{ text: 'TEPRIDE', color: '#dc2626' }, { text: ' 40', color: '#fca5a5' }], pdf: '/Product PDFs/Tepride_40.pdf' },
+    { name: 'TEPRIDE CT', category: 'Anti-Hypertensive', combo: 'Telmisartan 40 mg + Cilnidipine 10 mg Tablets', img: '/Product Images RAW/TEPRIDE CT.png', nameParts: [{ text: 'TEPRIDE', color: '#111111' }, { text: ' CT', color: '#dc2626' }], pdf: '/Product PDFs/Tepride_CT.pdf' },
+    { name: 'TEPRIDE CT 6.25', category: 'Anti-Hypertensive', combo: 'Telmisartan 40 mg + Chlorthalidone 6.25 mg Tablets', img: '/Product Images RAW/tepride CT 6.25.png', nameParts: [{ text: 'TEPRIDE', color: '#111111' }, { text: ' CT', color: '#2563eb' }, { text: ' 6.25', color: '#dc2626' }], pdf: '/Product PDFs/Tepride_CT_6_25.pdf' },
+    { name: 'TEPRIDE AM', category: 'Anti-Hypertensive', combo: 'Telmisartan 40 mg + Amlodipine 5 mg Tablets', img: '/Product Images RAW/TEPRIDE AM.png', nameParts: [{ text: 'TEPRIDE', color: '#111111' }, { text: ' AM', color: '#2563eb' }], pdf: '/Product PDFs/Tepride_AM.pdf' },
+    { name: 'TEPRIDE AMH', category: 'Anti-Hypertensive', combo: 'Telmisartan 40 mg + Amlodipine 5 mg + Hydrochlorothiazide 12.5 mg Tablets', img: '/Product Images RAW/TEPRIDE AMH.png', nameParts: [{ text: 'TEPRIDE', color: '#dc2626' }, { text: ' AMH', color: '#dc2626' }], pdf: '/Product PDFs/Tepride_AMH.pdf' },
+    { name: 'Uristill 0.4', category: 'General', combo: 'Tamsulosin Hydrochloride 0.4 mg Prolonged Release Capsules', img: '/Product Images RAW/URISTILL 0.4.png', nameParts: [{ text: 'URISTILL', color: '#111111' }, { text: ' 0.4', color: '#dc2626' }], pdf: '/Product PDFs/Uristill_0_4.pdf' },
+    { name: 'Getin 16', category: 'General', combo: 'Betahistine Hydrochloride Tablets 16 mg', img: '/Product Images RAW/GAITIN 16.png', nameParts: [{ text: 'GAITIN', color: '#7f1d1d' }, { text: ' 16', color: '#f97316' }], pdf: '/Product PDFs/Getin_16.pdf' },
+    { name: 'Alpha Neuron D', category: 'Neurology', combo: 'Methylcobalamin + Alpha Lipoic Acid + Vitamins', img: '/Product Images RAW/ALPHANEURON D.png', nameParts: [{ text: 'Alpha', color: '#111111' }, { text: ' Neuron', color: '#dc2626' }, { text: ' D', color: '#111111' }], pdf: '/Product PDFs/Alpha_Neuron_D.pdf' },
+    { name: 'Omega Pride', category: 'Neurology', combo: 'Omega 3 Fatty Acids Softgel Capsules', img: '/Product Images RAW/OMEGA PRIDE.png', nameParts: [{ text: 'Omega', color: '#7c3aed' }, { text: ' Pride', color: '#7c3aed' }], pdf: '/Product PDFs/Omega_Pride.pdf' },
+    { name: 'Sudhaxit M', category: 'Neurology', combo: 'Sitagliptin 50 mg + Metformin 500 mg Tablets', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=1200&auto=format&fit=crop', nameParts: [{ text: 'Sudhaxit', color: '#0f766e' }, { text: ' M', color: '#e63946' }], pdf: '/Product PDFs/Sudhaxit_M.pdf' },
+    { name: 'OxyPride', category: 'Multivitamins', combo: 'Antioxidants with Multivitamins & Minerals', img: '/Product Images RAW/OXYPRIDE +.png', nameParts: [{ text: 'Oxy', color: '#dc2626' }, { text: 'pride', color: '#16a34a' }, { text: ' +', color: '#dc2626' }], pdf: '/Product PDFs/Oxy_1.pdf' },
+    { name: 'Shanpride 200', category: 'Antibiotics', combo: 'Cefpodoxime Proxetil Tablets 200 mg', img: '/Product Images RAW/shanpride 200.png', nameParts: [{ text: 'Shanpride', color: '#ec4899' }, { text: ' 200', color: '#111111' }], pdf: '/Product PDFs/Shanpride_200.pdf' },
+    { name: 'Giopride 1', category: 'Diabetology', combo: 'Glimepiride 1 mg Tablets', img: '/Product Images RAW/GIOPRIDE 1.png', nameParts: [{ text: 'Giopride', color: '#d946ef' }, { text: ' 1', color: '#111111' }], pdf: '/Product PDFs/Giopride_1.pdf' },
+    { name: 'Giopride 2', category: 'Diabetology', combo: 'Glimepiride 2 mg Tablets', img: '/Product Images RAW/GIOPRIDE 2.png', nameParts: [{ text: 'Giopride', color: '#f97316' }, { text: ' 2', color: '#111111' }], pdf: '/Product PDFs/Giopride_2.pdf' },
+    { name: 'Giopride P1', category: 'Diabetology', combo: 'Glimepiride 1 mg + Pioglitazone 15 mg Tablets', img: '/Product Images RAW/GIOPRIDE P1.png', nameParts: [{ text: 'Giopride', color: '#16a34a' }, { text: ' P1', color: '#111111' }], pdf: '/Product PDFs/Giopride_P1.pdf' },
+    { name: 'Giopride P2', category: 'Diabetology', combo: 'Glimepiride 2 mg + Pioglitazone 15 mg Tablets', img: '/Product Images RAW/GIOPRIDE P2.png', nameParts: [{ text: 'Giopride', color: '#2563eb' }, { text: ' P2', color: '#dc2626' }], pdf: '/Product PDFs/Giopride_P2.pdf' },
+];
+
+export const portfolioCategories = [
+    { key: 'General', label: 'General', icon: 'fa-capsules' },
+    { key: 'Anti-Hypertensive', label: 'Anti-Hypertensive', icon: 'fa-heart-pulse' },
+    { key: 'Diabetology', label: 'Diabetology', icon: 'fa-droplet' },
+    { key: 'Neurology', label: 'Neurology', icon: 'fa-brain' },
+    { key: 'Multivitamins', label: 'Multivitamins', icon: 'fa-pills' },
+    { key: 'Gastroenterology', label: 'Gastroenterology', icon: 'fa-prescription-bottle-medical' },
+    { key: 'Antibiotics', label: 'Antibiotics', icon: 'fa-shield-virus' },
+];
