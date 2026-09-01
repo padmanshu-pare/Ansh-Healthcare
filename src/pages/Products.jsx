@@ -15,7 +15,7 @@ export default function Products({ openInquiry }) {
     const filteredProducts = useMemo(() => {
         let filtered = formulations;
         if (currentCategory !== 'all') {
-            filtered = filtered.filter(p => p.category === currentCategory);
+            filtered = filtered.filter(p => (p.categories || [p.category]).includes(currentCategory));
         }
         if (searchQuery) {
             const query = searchQuery.toLowerCase();
@@ -94,7 +94,7 @@ export default function Products({ openInquiry }) {
                         <div className="product-img-box"><img src={product.img} alt={product.name} /></div>
                         <div className="product-info">
                             <div className="status-row">
-                                <span className="category-tag">{product.category}</span>
+                                <span className="category-tag">{currentCategory === 'all' ? product.category : currentCategory}</span>
                                 <div style={{display:'flex', alignItems:'center', gap:'6px'}}>
                                     <span className="dot"></span>
                                     <span className="stock-text">Stock Available</span>
@@ -130,6 +130,7 @@ export default function Products({ openInquiry }) {
                             <h2><ProductName product={selectedProduct} /></h2>
                             <p style={{ margin: "20px 0", color: "#4b5563", fontSize: "18px" }}>{selectedProduct.combo}</p>
                             <div className="catalog-modal-actions">
+                                {selectedProduct.pdf && <a className="btn-secondary" href={selectedProduct.pdf} target="_blank" rel="noreferrer"><i className="fa-solid fa-file-pdf"></i> Product PDF</a>}
                                 <button className="btn-quote" onClick={() => { closeModal(); if(openInquiry) openInquiry(); }}>
                                     Inquire Now <i className="fa-solid fa-paper-plane"></i>
                                 </button>

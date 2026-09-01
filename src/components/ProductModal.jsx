@@ -17,6 +17,7 @@ export default function ProductModal({ isOpen, product, onClose, onInquire }) {
                 <h3><ProductName product={product} /></h3>
                 <p className="modal-product-combo">{product.combo}</p>
                 <div className="modal-actions">
+                    {product.pdf && <a className="btn-secondary" href={product.pdf} target="_blank" rel="noreferrer"><i className="fa-solid fa-file-pdf"></i> Product PDF</a>}
                     <button className="btn-primary btn-full-width" onClick={() => { onClose(); if (onInquire) onInquire(); }}>
                         Request Details <i className="fa-solid fa-paper-plane"></i>
                     </button>
