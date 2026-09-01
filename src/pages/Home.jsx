@@ -50,7 +50,7 @@ export default function Home({ openInquiry }) {
 
             <section id="home" className="hero">
                 <div className="hero-content reveal">
-                    <h1>Scale Meets<br/><span>Precision.</span></h1>
+                    <h1>Scale Meets<br /><span>Precision.</span></h1>
                     <p>From massive wholesale distribution to world-class personalized healthcare, Ansh Healthcare redefines the medical supply chain.</p>
                     <button className="btn-primary" onClick={openInquiry}>Become a Partner <i className="fa-solid fa-arrow-right"></i></button>
                 </div>
@@ -131,7 +131,7 @@ export default function Home({ openInquiry }) {
                 <div className="formulations-index reveal">
                     <h3>Our Flagship Formulations</h3>
                     <p className="formulations-subtitle">Click any product to view its composition.</p>
-                    
+
                     <div className="pill-grid" id="formulationGrid">
                         {formulations.map((product, idx) => (
                             <div key={idx} className="formulation-pill reveal" onClick={() => setSelectedProduct(product)}>
@@ -157,18 +157,18 @@ export default function Home({ openInquiry }) {
                 <div className="stockist-grid">
                     <div className="stockist-card reveal">
                         <div className="stockist-avatar"><i className="fa-solid fa-building"></i></div>
-                        <h4>MediCorp Dist.</h4>
-                        <p>Mumbai</p>
+                        <h4>Agrawal Agencies</h4>
+                        <p>Khandwa</p>
                     </div>
                     <div className="stockist-card reveal">
                         <div className="stockist-avatar"><i className="fa-solid fa-truck-fast"></i></div>
-                        <h4>Apex Supply</h4>
-                        <p>Delhi</p>
+                        <h4>Ashwin Agencies</h4>
+                        <p>Burhanpur</p>
                     </div>
                     <div className="stockist-card reveal">
                         <div className="stockist-avatar"><i className="fa-solid fa-warehouse"></i></div>
-                        <h4>Global Health</h4>
-                        <p>Bangalore</p>
+                        <h4>Kothari Brothers</h4>
+                        <p>Indore</p>
                     </div>
                 </div>
             </section>
