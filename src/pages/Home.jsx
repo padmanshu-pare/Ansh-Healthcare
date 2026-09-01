@@ -115,7 +115,7 @@ export default function Home({ openInquiry }) {
 
                 <div className="product-grid">
                     {portfolioCategories.map((category) => {
-                        const count = formulations.filter((product) => (product.categories || [product.category]).includes(category.key)).length;
+                        const count = formulations.filter((product) => product.category === category.key).length;
                         return (
                             <div className="product-card reveal" key={category.key}>
                                 <span className="product-badge">{count} {count === 1 ? 'Product' : 'Products'}</span>
@@ -142,9 +142,11 @@ export default function Home({ openInquiry }) {
                     </div>
                 </div>
 
-                <div className="portfolio-actions reveal">
+                <div className="btn-wrap reveal portfolio-actions">
                     <Link to="/products" state={{ restorePortfolioScroll: true }} onClick={() => sessionStorage.setItem('ansh-portfolio-scroll', String(window.scrollY))} className="btn-white">See Full Catalog</Link>
-                    <a href="/ansh-healthcare-full-portfolio.pdf" download className="btn-white portfolio-pdf-btn"><i className="fa-solid fa-file-pdf"></i> Download Full Portfolio PDF</a>
+                    <a href="/Ansh-Healthcare-Full-Product-Portfolio.pdf" className="btn-white portfolio-pdf-btn" target="_blank" rel="noreferrer">
+                        <i className="fa-solid fa-file-pdf"></i> Download Full Portfolio PDF
+                    </a>
                 </div>
             </section>
 
