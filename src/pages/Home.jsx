@@ -142,8 +142,11 @@ export default function Home({ openInquiry }) {
                     </div>
                 </div>
 
-                <div className="btn-wrap reveal">
+                <div className="btn-wrap reveal portfolio-actions">
                     <Link to="/products" state={{ restorePortfolioScroll: true }} onClick={() => sessionStorage.setItem('ansh-portfolio-scroll', String(window.scrollY))} className="btn-white">See Full Catalog</Link>
+                    <a href="/Ansh-Healthcare-Full-Product-Portfolio.pdf" className="btn-white portfolio-pdf-btn" target="_blank" rel="noreferrer">
+                        <i className="fa-solid fa-file-pdf"></i> Download Full Portfolio PDF
+                    </a>
                 </div>
             </section>
 

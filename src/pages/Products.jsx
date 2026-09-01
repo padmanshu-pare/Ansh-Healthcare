@@ -130,7 +130,6 @@ export default function Products({ openInquiry }) {
                             <h2><ProductName product={selectedProduct} /></h2>
                             <p style={{ margin: "20px 0", color: "#4b5563", fontSize: "18px" }}>{selectedProduct.combo}</p>
                             <div className="catalog-modal-actions">
-                                {selectedProduct.pdf && <a className="btn-secondary" href={selectedProduct.pdf} target="_blank" rel="noreferrer"><i className="fa-solid fa-file-pdf"></i> Product PDF</a>}
                                 <button className="btn-quote" onClick={() => { closeModal(); if(openInquiry) openInquiry(); }}>
                                     Inquire Now <i className="fa-solid fa-paper-plane"></i>
                                 </button>
