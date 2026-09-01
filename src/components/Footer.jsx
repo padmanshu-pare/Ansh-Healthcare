@@ -1,52 +1,25 @@
+import { Link } from 'react-router-dom';
+
 export default function Footer() {
     return (
         <footer className="mega-footer">
-            <div className="footer-grid">
-                <div className="footer-col">
-                    <h5>About Ansh</h5>
-                    <a href="#">Vision & Values</a>
-                    <a href="#">Milestones & Recognitions</a>
-                    <a href="#">Our Legacy</a>
-                    <a href="#">Leadership Team</a>
+            <div className="footer-brand-row">
+                <div>
+                    <img src="/logo.png" alt="Ansh Healthcare" className="footer-logo" />
+                    <h3>ANSH HEALTHCARE</h3>
+                    <p>Pharmaceutical portfolio & business partnerships.</p>
                 </div>
-                <div className="footer-col">
-                    <h5>Operations</h5>
-                    <a href="#">Wholesale Products</a>
-                    <a href="#">Innovation & R&D</a>
-                    <a href="#">Quality Assurance</a>
-                    <a href="#">Supply Chain</a>
-                </div>
-                <div className="footer-col">
-                    <h5>Investors</h5>
-                    <a href="#">Financials</a>
-                    <a href="#">Annual Reports</a>
-                    <a href="#">Shareholders Information</a>
-                    <a href="#">Online Dispute Resolution</a>
-                </div>
-                <div className="footer-col">
-                    <h5>Work With Us</h5>
-                    <a href="#">Careers</a>
-                    <a href="#">Current Openings</a>
-                    <a href="#">Life at Ansh</a>
-                </div>
-                <div className="footer-col">
-                    <h5>Quick Links</h5>
-                    <a href="#">Contact Us</a>
-                    <a href="#">Partner with us</a>
-                    <a href="#">Adverse Events</a>
-                    <a href="#">Media Center</a>
-                </div>
+                <a className="footer-pdf-link" href="/Ansh-Healthcare-Full-Product-Portfolio.pdf" target="_blank" rel="noreferrer"><i className="fa-solid fa-file-pdf" /> Download Full Portfolio PDF</a>
             </div>
-
+            <div className="footer-grid">
+                <div className="footer-col"><h5>Company</h5><Link to="/about">About Us</Link><Link to="/products">Portfolio</Link><Link to="/contact">Contact</Link></div>
+                <div className="footer-col"><h5>Business</h5><Link to="/franchise">Franchise & Distribution</Link><Link to="/distributor">Become a Distributor</Link><Link to="/contact">Business Enquiry</Link></div>
+                <div className="footer-col"><h5>Resources</h5><a href="/Ansh-Healthcare-Full-Product-Portfolio.pdf" target="_blank" rel="noreferrer">Full Portfolio PDF</a><Link to="/medical-disclaimer">Medical Disclaimer</Link><Link to="/accessibility">Accessibility</Link></div>
+                <div className="footer-col"><h5>Legal & Security</h5><Link to="/privacy-policy">Privacy Policy</Link><Link to="/terms-and-conditions">Terms & Conditions</Link><Link to="/disclaimer">Website Disclaimer</Link><Link to="/cookie-policy">Cookie Policy</Link><Link to="/security">Security</Link></div>
+            </div>
             <div className="footer-bottom">
-                <div className="footer-copy">
-                    Copyright © 2026 Ansh Healthcare Ltd.
-                    <a href="#">Privacy Policy</a> | <a href="#">Disclaimer</a>
-                </div>
-                <div className="social-icons">
-                    <a href="#" title="Facebook"><i className="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" title="LinkedIn"><i className="fa-brands fa-linkedin-in"></i></a>
-                </div>
+                <div className="footer-copy">Copyright © 2026 Ansh Healthcare Ltd. <span>•</span> <Link to="/privacy-policy">Privacy</Link> <span>•</span> <Link to="/terms-and-conditions">Terms</Link></div>
+                <div className="social-icons"><a href="https://wa.me/919425326084" target="_blank" rel="noreferrer" title="WhatsApp"><i className="fa-brands fa-whatsapp"></i></a></div>
             </div>
         </footer>
     );
