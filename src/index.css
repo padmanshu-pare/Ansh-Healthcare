@@ -716,7 +716,7 @@
   }
 
   .formulation-pill {
-      background: rgba(255, 255, 255, 0.03);
+      background: rgb(251, 251, 251);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 12px;
       padding: 18px;
@@ -731,7 +731,7 @@
   }
 
   .formulation-pill:hover {
-      background: var(--pure-black);
+      background: rgb(242, 200, 200);
       border-color: var(--accent-red);
       transform: translateY(-8px);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
@@ -1894,7 +1894,7 @@
       width: 100%;
       text-align: center;
       border: 1px solid #222;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
   }
 
   .login-card h3 {
@@ -1989,7 +1989,8 @@
       transition: var(--transition);
   }
 
-  .nav-item:hover, .nav-item.active {
+  .nav-item:hover,
+  .nav-item.active {
       background: #111;
       color: white;
   }
@@ -2072,8 +2073,13 @@
       color: #555;
   }
 
-  .stat-trend.green { color: #22c55e; }
-  .stat-trend.orange { color: #f59e0b; }
+  .stat-trend.green {
+      color: #22c55e;
+  }
+
+  .stat-trend.orange {
+      color: #f59e0b;
+  }
 
   .inquiry-section h3 {
       font-size: 24px;
@@ -2108,8 +2114,16 @@
       font-size: 14px;
   }
 
-  .firm-name { font-weight: 800; color: white; }
-  .firm-meta { font-size: 12px; color: #555; margin-top: 4px; }
+  .firm-name {
+      font-weight: 800;
+      color: white;
+  }
+
+  .firm-meta {
+      font-size: 12px;
+      color: #555;
+      margin-top: 4px;
+  }
 
   .badge-pill {
       background: #222;
@@ -2127,140 +2141,259 @@
       text-transform: uppercase;
       font-size: 12px;
   }
-/* ================= PUBLIC REBUILD POLISH ================= */
-.logo img { height: 52px; }
-.logo-subtext { font-size: 17px; letter-spacing: 2px; }
-header.scrolled .logo img { height: 42px; }
-header.scrolled .logo-subtext { font-size: 16px; }
 
-.product-name-colored { display: inline; }
-.product-name-colored > span { font-weight: inherit; }
+  /* ================= PUBLIC REBUILD POLISH ================= */
+  .logo img {
+      height: 52px;
+  }
 
-/* Larger, more readable product imagery */
-.catalog-page .product-img-box { height: 320px; padding: 24px; }
-.catalog-page .product-img-box img { width: 100%; height: 100%; object-fit: contain; }
+  .logo-subtext {
+      font-size: 17px;
+      letter-spacing: 2px;
+  }
 
-.catalog-image-button {
-    border: 0;
-    background: transparent;
-    padding: 0;
-    width: 100%;
-    min-height: 430px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: zoom-in;
-    color: #777;
-}
-.catalog-image-button img { width: 100%; max-width: 520px; max-height: 430px; object-fit: contain; }
-.catalog-image-button > span { margin-top: 14px; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
-.catalog-modal-actions { display: flex; gap: 12px; align-items: stretch; }
-.catalog-modal-actions .btn-quote, .catalog-modal-actions .btn-secondary { flex: 1; }
-.btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 16px 18px;
-    border-radius: 12px;
-    background: #fff;
-    color: #111;
-    border: 1px solid #ddd;
-    font-weight: 800;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-size: 12px;
-}
-.btn-secondary:hover { border-color: var(--accent-red); color: var(--accent-red); }
+  header.scrolled .logo img {
+      height: 42px;
+  }
 
-.image-preview-button {
-    border: 0;
-    background: transparent;
-    padding: 0;
-    cursor: zoom-in;
-    display: block;
-    width: 100%;
-}
-.image-preview-button .modal-product-img { width: 100%; max-height: 420px; object-fit: contain; }
-.image-preview-hint { display: block; margin-top: 10px; color: #777; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
-.modal-actions { display: flex; gap: 10px; align-items: stretch; }
-.modal-actions .btn-full-width { flex: 1; }
+  header.scrolled .logo-subtext {
+      font-size: 16px;
+  }
 
-.image-lightbox {
-    position: fixed;
-    inset: 0;
-    z-index: 5000;
-    background: rgba(0,0,0,.92);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 50px;
-    cursor: zoom-out;
-}
-.image-lightbox img {
-    max-width: min(96vw, 1500px);
-    max-height: 92vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    cursor: default;
-    box-shadow: 0 30px 100px rgba(0,0,0,.45);
-}
-.image-lightbox-close {
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    width: 48px;
-    height: 48px;
-    border: 0;
-    border-radius: 50%;
-    background: #fff;
-    color: #111;
-    font-size: 30px;
-    line-height: 1;
-    cursor: pointer;
-}
-.catalog-lightbox { z-index: 6000; }
+  .product-name-colored {
+      display: inline;
+  }
 
-@media (max-width: 768px) {
-    .logo img { height: 44px; }
-    .logo-subtext { font-size: 14px; }
-    header.scrolled .logo img { height: 38px; }
-    header.scrolled .logo-subtext { font-size: 13px; }
-    .catalog-page .product-img-box { height: 290px; }
-    .catalog-modal-content { flex-direction: column; max-height: 92vh; overflow-y: auto; }
-    .catalog-modal-left { padding: 35px 25px 15px; }
-    .catalog-modal-right { padding: 25px; }
-    .catalog-image-button { min-height: 300px; }
-    .catalog-image-button img { max-height: 300px; }
-    .catalog-modal-actions, .modal-actions { flex-direction: column; }
-    .image-lightbox { padding: 20px; }
-}
+  .product-name-colored>span {
+      font-weight: inherit;
+  }
+
+  /* Larger, more readable product imagery */
+  .catalog-page .product-img-box {
+      height: 320px;
+      padding: 24px;
+  }
+
+  .catalog-page .product-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+  }
+
+  .catalog-image-button {
+      border: 0;
+      background: transparent;
+      padding: 0;
+      width: 100%;
+      min-height: 430px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-in;
+      color: #777;
+  }
+
+  .catalog-image-button img {
+      width: 100%;
+      max-width: 520px;
+      max-height: 430px;
+      object-fit: contain;
+  }
+
+  .catalog-image-button>span {
+      margin-top: 14px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+  }
+
+  .catalog-modal-actions {
+      display: flex;
+      gap: 12px;
+      align-items: stretch;
+  }
+
+  .catalog-modal-actions .btn-quote,
+  .catalog-modal-actions .btn-secondary {
+      flex: 1;
+  }
+
+  .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 18px;
+      border-radius: 12px;
+      background: #fff;
+      color: #111;
+      border: 1px solid #ddd;
+      font-weight: 800;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-size: 12px;
+  }
+
+  .btn-secondary:hover {
+      border-color: var(--accent-red);
+      color: var(--accent-red);
+  }
+
+  .image-preview-button {
+      border: 0;
+      background: transparent;
+      padding: 0;
+      cursor: zoom-in;
+      display: block;
+      width: 100%;
+  }
+
+  .image-preview-button .modal-product-img {
+      width: 100%;
+      max-height: 420px;
+      object-fit: contain;
+  }
+
+  .image-preview-hint {
+      display: block;
+      margin-top: 10px;
+      color: #777;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+  }
+
+  .modal-actions {
+      display: flex;
+      gap: 10px;
+      align-items: stretch;
+  }
+
+  .modal-actions .btn-full-width {
+      flex: 1;
+  }
+
+  .image-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 5000;
+      background: rgba(0, 0, 0, .92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50px;
+      cursor: zoom-out;
+  }
+
+  .image-lightbox img {
+      max-width: min(96vw, 1500px);
+      max-height: 92vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      cursor: default;
+      box-shadow: 0 30px 100px rgba(0, 0, 0, .45);
+  }
+
+  .image-lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      width: 48px;
+      height: 48px;
+      border: 0;
+      border-radius: 50%;
+      background: #fff;
+      color: #111;
+      font-size: 30px;
+      line-height: 1;
+      cursor: pointer;
+  }
+
+  .catalog-lightbox {
+      z-index: 6000;
+  }
+
+  @media (max-width: 768px) {
+      .logo img {
+          height: 44px;
+      }
+
+      .logo-subtext {
+          font-size: 14px;
+      }
+
+      header.scrolled .logo img {
+          height: 38px;
+      }
+
+      header.scrolled .logo-subtext {
+          font-size: 13px;
+      }
+
+      .catalog-page .product-img-box {
+          height: 290px;
+      }
+
+      .catalog-modal-content {
+          flex-direction: column;
+          max-height: 92vh;
+          overflow-y: auto;
+      }
+
+      .catalog-modal-left {
+          padding: 35px 25px 15px;
+      }
+
+      .catalog-modal-right {
+          padding: 25px;
+      }
+
+      .catalog-image-button {
+          min-height: 300px;
+      }
+
+      .catalog-image-button img {
+          max-height: 300px;
+      }
+
+      .catalog-modal-actions,
+      .modal-actions {
+          flex-direction: column;
+      }
+
+      .image-lightbox {
+          padding: 20px;
+      }
+  }
 
 
-/* Full portfolio PDF action */
-.portfolio-actions {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-top: 28px;
-}
+  /* Full portfolio PDF action */
+  .portfolio-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+  }
 
-.portfolio-pdf-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-}
+  .portfolio-pdf-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+  }
 
-@media (max-width: 640px) {
-    .portfolio-actions {
-        flex-direction: column;
-    }
-    .portfolio-actions .btn-white {
-        width: min(100%, 340px);
-        justify-content: center;
-    }
-}
+  @media (max-width: 640px) {
+      .portfolio-actions {
+          flex-direction: column;
+      }
+
+      .portfolio-actions .btn-white {
+          width: min(100%, 340px);
+          justify-content: center;
+      }
+  }
