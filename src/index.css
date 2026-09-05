@@ -752,7 +752,15 @@
       box-shadow: 0 0 15px rgba(230, 57, 70, 0.5);
   }
 
-  
+  .formulation-name {
+      font-size: 15px;
+      font-weight: 800;
+      color: #ccc;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: var(--transition);
+      line-height: 1.4;
+  }
 
   .formulation-pill:hover .formulation-name {
       color: var(--pure-white);
